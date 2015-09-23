@@ -6,6 +6,12 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
+
+# Need to load Devise manually at this point so that the autoload hooks are loaded
+# Otherwise it will bomb out because it of unitialized constant Devise
+require "devise"
+require "devise/rails"
+
 # require "rails/test_unit/railtie"
 
 Bundler.require(*Rails.groups)
