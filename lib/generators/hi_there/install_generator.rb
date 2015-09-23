@@ -40,6 +40,17 @@ module HiThere
         end
       end
 
+      def create_stylesheet
+        create_file Rails.root + "vendor/assets/stylesheets/hi-tower.scss"
+      end
+
+      def add_stylesheet_to_path
+        puts "Adding hi-there.scss to assets precompile path in config/initializers/assets.rb..."
+        append_to_file("#{Rails.root}/config/initializers/assets.rb") do
+          %Q{Rails.application.config.assets.precompile += %w( hi-there.css )}
+        end
+      end
+
       def run_migrations
         unless options["no-migrate"]
           puts "Running rake db:migrate"

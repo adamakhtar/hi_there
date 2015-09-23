@@ -1,3 +1,28 @@
-= HiThere
+# HiThere
 
-This project rocks and uses MIT-LICENSE.
+## Styling
+
+To prevent your existing styles creeping into HiThere and vica versa, the gem explictly loads a stylesheet in its applciation layout by the name of hi-there.css rather than the usual appication.css we are all accustomed too. 
+
+You can find this stylesheet in `app/vendor/assets/stylesheets` where you can style the engine to you hearts content. 
+
+**What? You'd rather it be styled for you?**
+
+Well in that case you should also add this to your gemfile:
+
+```ruby
+gem 'hi_there_bootstrap', github: 'robodisco/hi_there_bootstrap'
+```
+
+then in the hi-there.scss file mentioned above add the following
+
+```scss
+@import "hi-there-bootstrap";
+```
+
+Which will use bootstrap via the bootstrap-sass gem to "jazz" things up a bit. 
+
+You can add further stylings after the `@import` decalaration if you require further customization. 
+
+
+
