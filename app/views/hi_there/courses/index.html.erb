@@ -1,23 +1,35 @@
 <div class="container">
-  <div class="page-heading">
-    <h1 class="page-title"><%= t('hi_there.courses.index.title') %></h1>
+  <div class="page">
+    <div class="page-header">
+      <h1 class="page-title"><%= t('hi_there.courses.index.title') %></h1>
+    </div>
+
+    <div class="page-actions">
+      <div class="btn-toolbar">
+        <div class="bth-group">
+          <%= link_to t('hi_there.common.actions.new'), new_course_path, class: 'btn btn-default' %>
+        </div>
+      </div>  
+    </div>
+
+    <div class="page-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><%= link_to "How to lose weight in 7 days", course_path(1) %></td>
+          </tr>
+
+          <tr>
+            <td><%= link_to "The secrets to wealth", course_path(2, published: true) %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr>
-        <td>How to lose weight in 7 days</td>
-      </tr>
-
-      <tr>
-        <td>The secrets to wealth</td>
-      </tr>
-    </tbody>
-  </table>
 </div>

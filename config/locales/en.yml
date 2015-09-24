@@ -1,5 +1,20 @@
 en:
   hi_there:
+    common:
+      actions:
+        new: "New"
+        edit: "Edit"
+        save: "Save"
+        cancel: "Cancel"
     courses:
+      actions:
+        pause: 'Pause'
+        terminate: 'Terminate'
+        add_email: 'New email'
       index:
         title: 'All courses'
+      new:
+        title: 'Create a new course'
+    emails:
+      new:
+        title: 'Create a new email'

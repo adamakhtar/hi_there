@@ -1,7 +1,7 @@
 require_dependency "hi_there/application_controller"
 
 module HiThere
-  class CoursesController < ApplicationController
+  class EmailsController < ApplicationController
     def index
     end
 
