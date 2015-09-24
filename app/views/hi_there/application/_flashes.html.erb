@@ -1,0 +1,12 @@
+<% if flash.any? %>
+  <div class="flashes">
+    <% flash.each do |key, value| -%>
+      <div class="alert alert-<%= key %>" role="alert">
+        <div class="container">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <%= value %>
+        </div>
+      </div>
+    <% end -%>
+  </div>
+<% end %>

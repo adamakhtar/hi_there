@@ -7,10 +7,12 @@ en:
         save: "Save"
         cancel: "Cancel"
     courses:
+      created: 'Created your course. Now add some emails.'
       actions:
         pause: 'Pause'
         terminate: 'Terminate'
         add_email: 'New email'
+        new: 'Create course'
       index:
         title: 'All courses'
       new:
