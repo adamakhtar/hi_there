@@ -3,6 +3,7 @@ require_dependency "hi_there/application_controller"
 module HiThere
   class CoursesController < ApplicationController
     def index
+      @courses = Course.all
     end
 
     def show
@@ -25,6 +26,18 @@ module HiThere
     end
 
     def edit
+      @course = find_course
+    end
+
+    def update
+      @course = find_course
+
+      if @course.update_attributes(course_params)
+        flash[:success] = t('hi_there.courses.updated')
+        redirect_to course_path(@course)
+      else
+        render :edit
+      end
     end
 
     protected

@@ -21,13 +21,7 @@
         </thead>
 
         <tbody>
-          <tr>
-            <td><%= link_to "How to lose weight in 7 days", course_path(1) %></td>
-          </tr>
-
-          <tr>
-            <td><%= link_to "The secrets to wealth", course_path(2, published: true) %></td>
-          </tr>
+          <%= render partial: @courses %>
         </tbody>
       </table>
     </div>

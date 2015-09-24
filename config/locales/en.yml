@@ -4,10 +4,12 @@ en:
       actions:
         new: "New"
         edit: "Edit"
+        update: "Save changes"
         save: "Save"
         cancel: "Cancel"
     courses:
       created: 'Created your course. Now add some emails.'
+      updated: 'Updated your course.'
       actions:
         pause: 'Pause'
         terminate: 'Terminate'
