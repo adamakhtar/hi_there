@@ -20,5 +20,6 @@ en:
       new:
         title: 'Create a new course'
     emails:
+      created: 'The email was saved and added to your course.'
       new:
         title: 'Create a new email'

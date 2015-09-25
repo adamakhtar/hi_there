@@ -26,36 +26,8 @@
           </tr>
         </thead>
 
-        <tbody>
-          <tr>
-            <td><%= link_to "The problem with diets today", course_email_path(1, 2) %></td>
-            <td>1</td>
-          </tr>
-
-          <tr>
-            <td><%= link_to "The biggest killer you could be facing", course_email_path(1, 2) %></td>
-            <td>3</td>
-          </tr>
-
-          <tr>
-            <td><%= link_to "How to avoid heart disease", course_email_path(1, 2) %></td>
-            <td>5</td>
-          </tr>
-
-          <tr>
-            <td><%= link_to "The easy way to create a nutritional diet", course_email_path(1, 2) %></td>
-            <td>7</td>
-          </tr>
-
-          <tr>
-            <td><%= link_to "Why longer workouts are actually less productive than shorter workouts.", course_email_path(1, 2) %></td>
-            <td>9</td>
-          </tr>
-
-          <tr>
-            <td><%= link_to "Now buy my amazing diet book", course_email_path(1, 2) %></td>
-            <td>11</td>
-          </tr>
+        <tbody class="course-emails-list">
+          <%= render partial: 'hi_there/courses/email', collection: @emails %>
         </tbody>
       </table>  
       <% unless params[:published] %>

@@ -16,9 +16,9 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
 
-  s.add_dependency "rails", "~> 4.2.4"
-  s.add_dependency "kaminari", "~> 0.16.0"
-  s.add_dependency "simple_form", "~> 3.1.0"
+  s.add_dependency 'rails', '~> 4.2.4'
+  s.add_dependency 'kaminari', '~> 0.16.0'
+  s.add_dependency 'simple_form', '~> 3.1.0'
 
   s.add_development_dependency 'byebug'
   s.add_development_dependency 'capybara', '~> 2.4.0'
@@ -28,5 +28,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec-rails', '~> 3'
   s.add_development_dependency 'sass-rails'
 
-  s.add_development_dependency "sqlite3"
+  s.add_development_dependency 'sqlite3'
 end

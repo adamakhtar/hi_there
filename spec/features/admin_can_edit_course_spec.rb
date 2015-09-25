@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "admin can edit course" do
-  scenario "via the course page" do
+  scenario "title" do
     course = create(:course)
     signed_in_admin
     visit hi_there.courses_path

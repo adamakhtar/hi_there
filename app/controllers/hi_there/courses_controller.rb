@@ -8,6 +8,7 @@ module HiThere
 
     def show
       @course = find_course
+      @emails = @course.emails.soonest_first
     end
 
     def new
