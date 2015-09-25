@@ -10,51 +10,8 @@
           </div>  
         </div>
       </div>
-
-      <%= f.input :title %>
-
-
       <div class="page-body">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Subject</th>
-              <th class="right">Delivered after (days)</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td><%= link_to "The problem with diets today", course_email_path(1, 2) %></td>
-              <td class="email-interval-col"><%= number_field_tag :interval, 1, class: 'form-control' %></td>
-            </tr>
-
-            <tr>
-              <td><%= link_to "The biggest killer you could be facing", course_email_path(1, 2) %></td>
-              <td class="email-interval-col"><%= number_field_tag :interval, 3, class: 'form-control' %></td>
-            </tr>
-
-            <tr>
-              <td><%= link_to "How to avoid heart disease", course_email_path(1, 2) %></td>
-              <td class="email-interval-col"><%= number_field_tag :interval, 5, class: 'form-control' %></td>
-            </tr>
-
-            <tr>
-              <td><%= link_to "The easy way to create a nutritional diet", course_email_path(1, 2) %></td>
-              <td class="email-interval-col"><%= number_field_tag :interval, 7, class: 'form-control' %></td>
-            </tr>
-
-            <tr>
-              <td><%= link_to "Why longer workouts are actually less productive than shorter workouts.", course_email_path(1, 2) %></td>
-              <td class="email-interval-col"><%= number_field_tag :interval, 9, class: 'form-control' %></td>
-            </tr>
-
-            <tr>
-              <td><%= link_to "Now buy my amazing diet book", course_email_path(1, 2) %></td>
-              <td class="email-interval-col"><%= number_field_tag :interval, 11, class: 'form-control' %></td>
-            </tr>
-          </tbody>
-        </table>  
+        <%= f.input :title %>
       </div>
     <% end %>
   </div>
