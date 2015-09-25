@@ -5,6 +5,7 @@ PATH
       kaminari (~> 0.16.0)
       rails (~> 4.2.4)
       simple_form (~> 3.1.0)
+      workflow (~> 1.2.0)
 
 GEM
   remote: https://rubygems.org/
@@ -159,6 +160,7 @@ GEM
       thread_safe (~> 0.1)
     warden (1.2.3)
       rack (>= 1.0)
+    workflow (1.2.0)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 

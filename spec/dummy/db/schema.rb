@@ -11,13 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150925000616) do
+ActiveRecord::Schema.define(version: 20150925123140) do
 
   create_table "hi_there_courses", force: :cascade do |t|
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "workflow_state"
   end
+
+  add_index "hi_there_courses", ["workflow_state"], name: "index_hi_there_courses_on_workflow_state"
 
   create_table "hi_there_emails", force: :cascade do |t|
     t.string   "subject"

@@ -10,11 +10,14 @@ en:
     courses:
       created: 'Created your course. Now add some emails.'
       updated: 'Updated your course.'
+      opened: 'This course is now open for subscriptions.'
+      closed: 'This course is now closed for futher subscriptions.'
       actions:
-        pause: 'Pause'
-        terminate: 'Terminate'
         add_email: 'New email'
+        close: 'Close'
         new: 'Create course'
+        open: 'Open'
+        terminate: 'Terminate'
       index:
         title: 'All courses'
       new:

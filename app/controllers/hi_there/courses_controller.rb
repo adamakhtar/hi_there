@@ -41,6 +41,20 @@ module HiThere
       end
     end
 
+    def open
+      @course = find_course
+      @course.open!
+      flash[:success] = t('hi_there.courses.opened')
+      redirect_to course_path(@course)
+    end
+
+    def close
+      @course = find_course
+      @course.close!
+      flash[:success] = t('hi_there.courses.closed')
+      redirect_to course_path(@course)
+    end
+
     protected
 
     def course_params

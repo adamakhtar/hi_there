@@ -7,12 +7,14 @@
     <div class="page-actions">
       <div class="btn-toolbar">
         <div class="btn-group">
-          <% if params[:published] %>
-            <%= link_to t('hi_there.courses.actions.pause'), edit_course_path(1), class: 'btn btn-default' %>
-            <%= link_to t('hi_there.courses.actions.terminate'), edit_course_path(1), class: 'btn btn-default' %>
-          <% else %>
-            <%= link_to t('hi_there.common.actions.edit'), edit_course_path(1), class: 'btn btn-default' %>
+          <% if @course.draft? %>
+            <%= button_to t('hi_there.courses.actions.open'), open_course_path(@course), class: 'btn btn-default', method: :put %>
+          <% elsif @course.opened? %>
+            <%= button_to t('hi_there.courses.actions.close'), close_course_path(@course), class: 'btn btn-default', method: :put %>
+          <% elsif @course.closed? %>
+            <%= button_to t('hi_there.courses.actions.open'), open_course_path(@course), class: 'btn btn-default', method: :put %>
           <% end %>
+          <%= link_to t('hi_there.common.actions.edit'), edit_course_path(@course), class: 'btn btn-default' %>          
         </div>
       </div>
     </div>

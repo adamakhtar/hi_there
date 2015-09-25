@@ -1,6 +1,7 @@
 require "hi_there/engine"
 require "kaminari"
 require "simple_form"
+require "workflow"
 
 module HiThere
   mattr_accessor :authorization_method, 
