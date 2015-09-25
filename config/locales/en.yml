@@ -21,5 +21,7 @@ en:
         title: 'Create a new course'
     emails:
       created: 'The email was saved and added to your course.'
+      updated: 'Updated your email.'
+      delivered_on_day: 'Delivered on day %{interval}'
       new:
         title: 'Create a new email'

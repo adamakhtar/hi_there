@@ -6,6 +6,8 @@ module HiThere
     end
 
     def show
+      load_course
+      @email = find_email
     end
 
     def new
@@ -26,12 +28,30 @@ module HiThere
     end
 
     def edit
+      load_course
+      @email = find_email
+    end
+
+    def update
+      load_course
+      @email = find_email
+
+      if @email.update_attributes(email_params)
+        flash[:success] = t('hi_there.emails.updated')
+        redirect_to course_email_path(@course, @email)
+      else
+        render :edit
+      end
     end
 
     protected
 
     def load_course
       @course ||= Course.find(params[:course_id])
+    end
+
+    def find_email
+      @course.emails.find(params[:id])
     end
 
     def build_email(args={})
