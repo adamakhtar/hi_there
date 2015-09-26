@@ -1,6 +1,7 @@
 en:
   hi_there:
     common:
+      not_authorized: "Sorry you can't do that."
       actions:
         new: "New"
         edit: "Edit"

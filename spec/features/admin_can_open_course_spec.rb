@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "admin can open course" do
   scenario "via course page" do
-    course = create(:course)
+    course = create(:course, workflow_state: 'draft')
     email = create(:email, interval: 1, course: course)
     
     signed_in_admin

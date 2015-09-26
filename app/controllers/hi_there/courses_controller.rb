@@ -27,32 +27,35 @@ module HiThere
     end
 
     def edit
-      @course = find_course
+      with_editable_course do |course|
+        @course = course
+      end
     end
 
     def update
-      @course = find_course
-
-      if @course.update_attributes(course_params)
-        flash[:success] = t('hi_there.courses.updated')
-        redirect_to course_path(@course)
-      else
-        render :edit
+      with_editable_course do |course|
+        @course = course
+        if @course.update_attributes(course_params)
+          flash[:success] = t('hi_there.courses.updated')
+          redirect_to course_path(@course)
+        else
+          render :edit
+        end
       end
     end
 
     def open
-      @course = find_course
-      @course.open!
+      course = find_course
+      course.open!
       flash[:success] = t('hi_there.courses.opened')
-      redirect_to course_path(@course)
+      redirect_to course_path(course)    
     end
 
     def close
-      @course = find_course
-      @course.close!
+      course = find_course
+      course.close!
       flash[:success] = t('hi_there.courses.closed')
-      redirect_to course_path(@course)
+      redirect_to course_path(course)
     end
 
     protected
@@ -63,6 +66,20 @@ module HiThere
 
     def find_course
       Course.find(params[:id])
+    end
+
+    def redirect_not_authorized
+      flash[:error] = t('hi_there.common.not_authorized')
+      redirect_to root_path
+    end
+
+    def with_editable_course
+      course = find_course
+      if course.draft?
+        yield course
+      else
+        redirect_not_authorized
+      end
     end
   end
 end

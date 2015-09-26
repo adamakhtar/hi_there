@@ -6,4 +6,5 @@ HiThere::Engine.routes.draw do
     end
     resources :emails, except: :destroy
   end
+  root to: 'courses#index'
 end
