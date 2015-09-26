@@ -1,7 +1,7 @@
 require "rails_helper"
 
-feature "admin can create add email to a course" do
-  scenario "via the course page" do
+feature "admin adds email to a course" do
+  scenario "when course is draft" do
     course = create(:course)
     signed_in_admin
     visit hi_there.course_path(course)

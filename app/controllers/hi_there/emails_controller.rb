@@ -1,53 +1,61 @@
 require_dependency "hi_there/application_controller"
 
 module HiThere
-  class EmailsController < ApplicationController
+  class EmailsController < ApplicationController    
     def index
     end
 
     def show
-      load_course
+      @course = find_course
       @email = find_email
     end
 
     def new
-        load_course
+      with_editable_course do |course|
+        @course = course 
         @email = build_email
+      end
     end
 
     def create
-      load_course
-      @email = build_email(email_params)
+      with_editable_course do |course|
+        @course = course 
+        @email = build_email(email_params)
 
-      if @email.save
-        flash[:success] = t('hi_there.emails.created')
-        redirect_to course_path(@course)
-      else
-        render :new
+        if @email.save
+          flash[:success] = t('hi_there.emails.created')
+          redirect_to course_path(@course)
+        else
+          render :new
+        end
       end
     end
 
     def edit
-      load_course
-      @email = find_email
+      with_editable_course do |course|
+        @course = course 
+        @email = find_email
+      end
     end
 
     def update
-      load_course
-      @email = find_email
+      with_editable_course do |course|
+        @course = course 
+        @email = find_email
 
-      if @email.update_attributes(email_params)
-        flash[:success] = t('hi_there.emails.updated')
-        redirect_to course_email_path(@course, @email)
-      else
-        render :edit
+        if @email.update_attributes(email_params)
+          flash[:success] = t('hi_there.emails.updated')
+          redirect_to course_email_path(@course, @email)
+        else
+          render :edit
+        end
       end
     end
 
     protected
 
-    def load_course
-      @course ||= Course.find(params[:course_id])
+    def find_course
+      Course.find(params[:course_id])
     end
 
     def find_email

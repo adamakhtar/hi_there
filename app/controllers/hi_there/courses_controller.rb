@@ -72,14 +72,5 @@ module HiThere
       flash[:error] = t('hi_there.common.not_authorized')
       redirect_to root_path
     end
-
-    def with_editable_course
-      course = find_course
-      if course.draft?
-        yield course
-      else
-        redirect_not_authorized
-      end
-    end
   end
 end

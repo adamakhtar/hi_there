@@ -18,5 +18,14 @@ module HiThere
       flash[:alert] = t('hi_there.access_denied')
       redirect_to HiThere.redirect_unauthorized_path
     end
+
+    def with_editable_course
+      course = find_course
+      if course.draft?
+        yield course
+      else
+        redirect_not_authorized
+      end
+    end
   end
 end
