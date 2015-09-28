@@ -25,7 +25,7 @@ module HiThere
     end
 
     def create_subscription(course)
-      # Subscription.create
+      Subscription.create(email: params[:email], course: course)
     end
   end
 end

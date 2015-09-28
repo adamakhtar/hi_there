@@ -8,7 +8,7 @@ module HiThere
           subscription = double(:subscription)
           course = build_stubbed(:course, workflow_state: 'opened')
           operation = CreateSubscription.new(email: "adam@example.com", course_id: course.id)
-          allow(operation).to receive(:create_subscription).and_return(subscription)
+          allow(Subscription).to receive(:create).with(email: "adam@example.com", course: course).and_return(subscription)
           allow(Course).to receive(:find).and_return course
 
           sub = operation.perform
