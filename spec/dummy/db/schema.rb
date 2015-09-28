@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150928000420) do
+ActiveRecord::Schema.define(version: 20150928060337) do
 
   create_table "hi_there_courses", force: :cascade do |t|
     t.string   "title"
@@ -40,10 +40,12 @@ ActiveRecord::Schema.define(version: 20150928000420) do
     t.integer  "course_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.string   "token"
   end
 
   add_index "hi_there_subscriptions", ["course_id"], name: "index_hi_there_subscriptions_on_course_id"
   add_index "hi_there_subscriptions", ["email"], name: "index_hi_there_subscriptions_on_email"
+  add_index "hi_there_subscriptions", ["token"], name: "index_hi_there_subscriptions_on_token"
   add_index "hi_there_subscriptions", ["workflow_state"], name: "index_hi_there_subscriptions_on_workflow_state"
 
   create_table "users", force: :cascade do |t|

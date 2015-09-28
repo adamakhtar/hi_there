@@ -16,5 +16,11 @@ module HiThere
         event :unsubscribe, transitions_to: :unsubscribed
       end
     end
+
+    before_create :generate_token
+
+    def generate_token
+      self.token ||= SecureRandom.urlsafe_base64
+    end
   end
 end

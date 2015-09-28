@@ -6,5 +6,10 @@ HiThere::Engine.routes.draw do
     end
     resources :emails, except: :destroy
   end
-  root to: 'courses#index'
+
+  resources :subscriptions, only: [:new, :create]
+
+  get 'confirmation_required' => 'subscriptions#confirmation_required'
+  get 'confirmed' => 'subscriptions#confirmed', as: 'confirmed_subscription'
+  get 'confirm/:token' => 'subscriptions#confirm', as: 'confirm_subscription'
 end

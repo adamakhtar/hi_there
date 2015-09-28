@@ -5,23 +5,17 @@ module HiThere
     end
 
     def perform
-      with_open_course do |course|
-        create_subscription(course)          
-      end
+      course = find_opened_course
+      subscription = create_subscription(course)          
+      subscription
     end
 
     private
 
     attr_reader :params
 
-    def with_open_course
-      course = Course.find(params[:course_id])
-
-      if course.opened? 
-        yield course
-      else
-        return false
-      end
+    def find_opened_course
+      Course.with_opened_state.find(params[:course_id])
     end
 
     def create_subscription(course)

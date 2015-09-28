@@ -1,0 +1,7 @@
+<div class="container">
+  <%= simple_form_for @subscription do |f| %>
+    <%= f.input :email %>
+    <%= f.input :course_id, as: :hidden %>
+    <%= f.submit t('hi_there.subscriptions.subscribe'), class: 'btn btn-primary' %>
+  <% end %>
+</div>
