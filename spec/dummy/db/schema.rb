@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150925123140) do
+ActiveRecord::Schema.define(version: 20150928000420) do
 
   create_table "hi_there_courses", force: :cascade do |t|
     t.string   "title"
@@ -33,6 +33,18 @@ ActiveRecord::Schema.define(version: 20150925123140) do
 
   add_index "hi_there_emails", ["course_id"], name: "index_hi_there_emails_on_course_id"
   add_index "hi_there_emails", ["interval"], name: "index_hi_there_emails_on_interval"
+
+  create_table "hi_there_subscriptions", force: :cascade do |t|
+    t.string   "email"
+    t.string   "workflow_state"
+    t.integer  "course_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "hi_there_subscriptions", ["course_id"], name: "index_hi_there_subscriptions_on_course_id"
+  add_index "hi_there_subscriptions", ["email"], name: "index_hi_there_subscriptions_on_email"
+  add_index "hi_there_subscriptions", ["workflow_state"], name: "index_hi_there_subscriptions_on_workflow_state"
 
   create_table "users", force: :cascade do |t|
     t.boolean  "admin",                  default: false

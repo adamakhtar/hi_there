@@ -1,4 +1,5 @@
 require "hi_there/engine"
+require "email_validator"
 require "kaminari"
 require "simple_form"
 require "workflow"

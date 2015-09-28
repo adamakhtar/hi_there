@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     hi_there (0.0.1)
+      email_validator (~> 1.6.0)
       kaminari (~> 0.16.0)
       rails (~> 4.2.4)
       simple_form (~> 3.1.0)
@@ -64,6 +65,8 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    email_validator (1.6.0)
+      activemodel
     erubis (2.7.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)

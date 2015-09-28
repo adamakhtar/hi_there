@@ -29,14 +29,3 @@ module HiThere
     end
   end
 end
-
-
-
-
-
-  
-  
-
-
-
-

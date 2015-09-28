@@ -3,6 +3,7 @@ module HiThere
     include Workflow
     
     has_many :emails, -> { order(interval: :asc) }
+    has_many :subscriptions
 
     validates :title, presence: true, uniqueness: true
     
