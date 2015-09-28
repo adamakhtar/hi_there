@@ -12,6 +12,7 @@ module HiThere
     def create
       @subscription = CreateSubscription.new(subscription_params).perform
       if @subscription.valid?
+        SubscriptionMailer.confirm_your_email(id: @subscription.id).deliver_later
         redirect_to confirmation_required_path
       else
         render :new

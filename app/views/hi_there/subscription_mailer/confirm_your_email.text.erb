@@ -1,0 +1,9 @@
+Hi,
+
+You signed up for the email course "<%= @course.title %>". To start receiving the contents of the course please confirm your email address by visiting the link below.
+
+<%= confirm_subscription_url(token: @subscription.token, host: HiThere.app_domain) %>
+
+Thank you
+
+<% HiThere.from %>
