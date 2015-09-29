@@ -1,10 +1,33 @@
 # HiThere
 
+## Setting up
+
+```ruby
+gem 'hi_there', github: 'robodisco/hi_there'
+
+```sh
+bundle install
+rails g hi_there:install
+```
+
+This will create a hi_there initializer file which **you will definately need to edit**. It will look something like this. See the initializer for more information regarding each setting.
+
+```ruby
+HiThere.user_class = "User" 
+HiThere.authorization_method = :can_manage_hi_there?
+HiThere.current_user_method = :current_user
+HiThere.redirect_unauthorized_path = '/'
+HiThere.app_domain = "example.com"
+HiThere.reply_to = 'your_email@example.com'
+HiThere.from = 'Admin'
+HiThere.per_page = 20
+```
+
 ## Styling
 
 To prevent your existing styles creeping into HiThere and vica versa, the gem explictly loads a stylesheet in its applciation layout by the name of hi-there.css rather than the usual appication.css we are all accustomed too. 
 
-You can find this stylesheet in `app/vendor/assets/stylesheets` where you can style the engine to you hearts content. 
+You can find this stylesheet in `app/vendor/assets/stylesheets` where you can style the engine to your hearts content. 
 
 **What? You'd rather it be styled for you?**
 
@@ -23,6 +46,3 @@ then in the hi-there.scss file mentioned above add the following
 Which will use bootstrap via the bootstrap-sass gem to "jazz" things up a bit. 
 
 You can add further stylings after the `@import` decalaration if you require further customization. 
-
-
-
