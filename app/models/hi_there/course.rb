@@ -2,7 +2,7 @@ module HiThere
   class Course < ActiveRecord::Base
     include Workflow
     
-    has_many :emails, -> { order(interval: :asc) }
+    has_many :emails, -> { order(issue_number: :asc) }
     has_many :subscriptions
 
     validates :title, presence: true, uniqueness: true

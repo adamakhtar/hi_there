@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150928060337) do
+ActiveRecord::Schema.define(version: 20150929054553) do
 
   create_table "hi_there_courses", force: :cascade do |t|
     t.string   "title"
@@ -26,13 +26,15 @@ ActiveRecord::Schema.define(version: 20150928060337) do
     t.string   "subject"
     t.text     "body"
     t.integer  "course_id"
-    t.integer  "interval",   default: 1
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "interval",     default: 1
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "issue_number"
   end
 
   add_index "hi_there_emails", ["course_id"], name: "index_hi_there_emails_on_course_id"
   add_index "hi_there_emails", ["interval"], name: "index_hi_there_emails_on_interval"
+  add_index "hi_there_emails", ["issue_number"], name: "index_hi_there_emails_on_issue_number"
 
   create_table "hi_there_subscriptions", force: :cascade do |t|
     t.string   "email"
