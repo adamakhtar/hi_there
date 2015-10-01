@@ -19,6 +19,10 @@ module HiThere
       state :closed do
         event :open, :transitions_to => :opened
       end
-    end    
+    end 
+
+    def issue(number)
+      emails.where(issue_number: number).take
+    end   
   end
 end
