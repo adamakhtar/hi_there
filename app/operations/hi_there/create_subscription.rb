@@ -6,13 +6,22 @@ module HiThere
 
     def perform
       course = find_opened_course
-      subscription = create_subscription(course)          
+      subscription = create_subscription(course)
+
+      if subscription.valid?
+        deliver_confirm_email_request(subscription)
+      end
+
       subscription
     end
 
     private
 
     attr_reader :params
+
+    def deliver_confirm_email_request(subscription)
+      SubscriptionMailer.confirm_your_email(id: subscription.id).deliver_later
+    end
 
     def find_opened_course
       Course.with_opened_state.find(params[:course_id])
