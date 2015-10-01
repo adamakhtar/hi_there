@@ -22,8 +22,10 @@ module HiThere
       if first_email = course.emails.first
         subscription.update_next_issue!(issue_number: 1, delivery_at: Time.current + first_email.interval.days)
         subscription.start!
+        true
+      else
+        false
       end
-      subscription
     end
 
     private

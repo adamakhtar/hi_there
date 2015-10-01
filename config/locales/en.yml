@@ -33,6 +33,7 @@ en:
       subscribe: 'Subscribe'
       confirmation_required: 'Thank you for subscribing. To confirm your subscription please click the link we have just emailed you.'
       confirmed: 'Thank you. You are now subscribed.'
+      invalid: "Sorry but that doesn't exist anymore."
     subscription_mailer:
       confirm_your_email:
         subject: 'Please confirm your email'

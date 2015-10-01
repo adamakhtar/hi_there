@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "visitor subscribes to course" do
   scenario "via hosted form" do
-    course = create(:course, :opened)
+    course = create(:course, :opened, emails: [create(:email)])
     visit hi_there.new_subscription_path(course_id: course.id)
 
     fill_in "Email", with: 'adam@example.com'

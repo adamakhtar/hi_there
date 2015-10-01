@@ -22,15 +22,23 @@ module HiThere
     end
 
     def confirm
-      subscription = Subscription.where(token: params[:token]).take!
-      subscription.confirm!
-      redirect_to confirmed_subscription_path
+      operation = ConfirmSubscription.new(find_subscription_by_token)
+
+      if operation.perform
+        redirect_to confirmed_subscription_path
+      else
+        redirect_to invalid_subscription_path
+      end
     end
 
     def confirmed
     end
 
     protected
+
+    def find_subscription_by_token
+      Subscription.where(token: params[:token]).take!
+    end
 
     def subscription_params
       params.require(:subscription).permit(:email, :course_id)
