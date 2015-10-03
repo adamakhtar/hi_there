@@ -34,6 +34,14 @@ module HiThere
     def confirmed
     end
 
+    def destroy
+      if subscription = find_subscription_by_token and subscription.unsubscribe!
+        redirect_to unsubscribed_subscription_path
+      else
+        redirect_to invalid_subscription_path
+      end
+    end
+
     protected
 
     def find_subscription_by_token

@@ -13,4 +13,6 @@ HiThere::Engine.routes.draw do
   get 'confirmed' => 'subscriptions#confirmed', as: 'confirmed_subscription'
   get 'confirm/' => 'subscriptions#confirm', as: 'confirm_subscription'
   get 'invalid/' => 'subscriptions#invalid', as: 'invalid_subscription'
+  get 'unsubscribe/' => 'subscriptions#destroy', as: 'unsubscribe_subscription'
+  get 'unsubscribed/' => 'subscriptions#unsubscribed', as: 'unsubscribed_subscription'
 end

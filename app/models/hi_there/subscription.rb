@@ -19,9 +19,11 @@ module HiThere
 
       state :activated do
         event :complete, transitions_to: :completed
+        event :unsubscribe, transitions_to: :unsubscribed 
       end
 
       state :completed
+      state :unsubscribed
     end
 
     before_create :generate_token
