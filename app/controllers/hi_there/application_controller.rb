@@ -24,7 +24,7 @@ module HiThere
       if course.draft?
         yield course
       else
-        redirect_not_authorized
+        redirect_unauthorized
       end
     end
   end
