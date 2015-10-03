@@ -14,10 +14,10 @@ module HiThere
 
       state :confirmed do
         event :unsubscribe, transitions_to: :unsubscribed
-        event :start, transitions_to: :started
+        event :activate, transitions_to: :activated
       end
 
-      state :started do
+      state :activated do
         event :complete, transitions_to: :completed
       end
 
