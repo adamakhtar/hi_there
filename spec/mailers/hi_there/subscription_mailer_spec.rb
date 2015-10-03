@@ -16,6 +16,20 @@ module HiThere
         expect(mail.body.encoded).to include(confirm_subscription_url(token: subscription.token, host: HiThere.app_domain))
       end
     end
+
+    describe "next_issue" do
+      it "renders" do
+        email = create(:email, subject: 'Welcome', body: 'Hi there')
+        subscription = create(:subscription, email: 'adam@example.com')
+
+        mail = SubscriptionMailer.next_issue(id: subscription.id, email_id: email.id)
+
+        expect(mail.subject).to eq(email.subject)
+        expect(mail.to).to eq([subscription.email])
+        expect(mail.from).to eq([HiThere.from])
+        expect(mail.body.encoded).to include(email.body)
+      end
+    end
   end
 end
 

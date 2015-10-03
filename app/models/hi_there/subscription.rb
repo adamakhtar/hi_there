@@ -26,6 +26,10 @@ module HiThere
 
     before_create :generate_token
 
+    def self.overdue
+      where('next_delivery_at < ?', Time.current)
+    end
+
     def generate_token
       self.token ||= SecureRandom.urlsafe_base64
     end

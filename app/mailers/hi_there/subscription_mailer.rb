@@ -11,5 +11,17 @@ module HiThere
         subject: t('hi_there.subscription_mailer.confirm_your_email.subject')
       )
     end
+
+    def next_issue(id:, email_id:)
+      @subscription = Subscription.find(id)
+      @email = Email.find(email_id)
+
+      mail(
+        reply_to: HiThere.reply_to,
+        from: HiThere.from, 
+        to: @subscription.email,
+        subject: @email.subject
+      )
+    end
   end
 end
