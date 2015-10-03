@@ -28,6 +28,7 @@ module HiThere
         expect(mail.to).to eq([subscription.email])
         expect(mail.from).to eq([HiThere.from])
         expect(mail.body.encoded).to include(email.body)
+        expect(mail.body.encoded).to include(unsubscribe_subscription_path(token: subscription.token))
       end
     end
   end

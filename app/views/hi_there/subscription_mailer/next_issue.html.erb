@@ -1,3 +1,5 @@
 <%= simple_format @email.body %>
 
+<hr/>
 
+<%= link_to 'Unsubscribe from this list', unsubscribe_subscription_url(token: @subscription.token, host: HiThere.app_domain) %>
