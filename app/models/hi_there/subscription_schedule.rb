@@ -1,3 +1,4 @@
+
 module HiThere
   class SubscriptionSchedule
 
@@ -33,7 +34,7 @@ module HiThere
     attr_reader :course, :subscription
 
     def next_issue
-        @next_issue ||= course.issue(next_issue_number)
+      @next_issue ||= course.issue(next_issue_number)
     end
 
     def current_issue_number
