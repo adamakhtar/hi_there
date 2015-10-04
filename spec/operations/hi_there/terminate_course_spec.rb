@@ -5,7 +5,7 @@ module HiThere
     describe "#perform" do
       it "sets course and subscriptions state to terminated" do      
         course = create(:course, :opened)
-        subscription = create(:subscription, :confirmed, course: course)
+        subscription = create(:subscription, :activated, course: course)
         operation = TerminateCourse.new(course)
 
         result = operation.perform

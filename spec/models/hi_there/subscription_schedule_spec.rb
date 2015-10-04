@@ -8,7 +8,7 @@ module HiThere
           course = create(:course)
           email_a = create(:email, subject: 'email_a', interval: 1, course: course)
           email_b = create(:email, subject: 'email_b', interval: 1, course: course)
-          subscription = create(:subscription, :confirmed, course: course)
+          subscription = create(:subscription, :opted_in, course: course)
           schedule = SubscriptionSchedule.new(subscription)
           schedule.start
 
@@ -24,7 +24,7 @@ module HiThere
         it "sets the subscription as completed" do
           course = create(:course)
           email_a = create(:email, subject: 'email_a', interval: 1, course: course)
-          subscription = create(:subscription, :confirmed, course: course)
+          subscription = create(:subscription, :opted_in, course: course)
           schedule = SubscriptionSchedule.new(subscription)
           schedule.start
 
@@ -43,7 +43,7 @@ module HiThere
         course = create(:course)
         email_a = create(:email, subject: 'email_a', interval: 1, course: course)
         email_b = create(:email, subject: 'email_b', interval: 1, course: course)
-        subscription = create(:subscription, :confirmed, course: course)
+        subscription = create(:subscription, :opted_in, course: course)
         schedule = SubscriptionSchedule.new(subscription)
         schedule.start
 
@@ -59,7 +59,7 @@ module HiThere
         first_interval = 3
         email_a = create(:email, subject: 'email_a', interval: first_interval, course: course)
         
-        subscription = create(:subscription, :confirmed, course: course)
+        subscription = create(:subscription, :opted_in, course: course)
         schedule = SubscriptionSchedule.new(subscription)        
         
         result = schedule.start

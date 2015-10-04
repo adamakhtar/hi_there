@@ -5,7 +5,8 @@ module HiThere
     describe "#perform" do
       context "when valid subscription" do
         it "is success" do
-          subscription = double(:subscription, confirm!: nil)
+          course = double(:course, opened?: true)
+          subscription = double(:subscription, activate!: nil, course: course)
           schedule = double(:schedule, start: true)
           allow(SubscriptionSchedule).to receive(:new).with(subscription).and_return(schedule)
           operation = ConfirmSubscription.new(subscription)

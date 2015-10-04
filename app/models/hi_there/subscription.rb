@@ -10,10 +10,6 @@ module HiThere
     workflow do
       state :opted_in do
         event :confirm, transitions_to: :confirmed
-      end
-
-      state :confirmed do
-        event :unsubscribe, transitions_to: :unsubscribed
         event :activate, transitions_to: :activated
       end
 

@@ -3,8 +3,12 @@ FactoryGirl.define do
     email "adam@example.com"
     course
 
-    trait :confirmed do
-      workflow_state :confirmed
+    trait :opted_in do
+      workflow_state :opted_in
+    end
+
+    trait :activated do
+      workflow_state :activated
     end
   end
 end

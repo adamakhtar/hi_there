@@ -5,8 +5,7 @@ module HiThere
     end
 
     def perform
-      mark_as_confirmed
-      if start_subscription_shedule        
+      if course_opened? and start_subscription_shedule        
         true
       else
         false
@@ -15,8 +14,8 @@ module HiThere
 
     private
 
-    def mark_as_confirmed
-      subscription.confirm!
+    def course_opened?
+      subscription.course.opened?
     end
 
     def start_subscription_shedule
