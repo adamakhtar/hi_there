@@ -7,8 +7,8 @@ module HiThere
 
     def perform
       return false unless current_issue
+      mail_current_issue
       subscription_schedule.advance
-      mail_next_issue
       true
     end
 
@@ -16,7 +16,7 @@ module HiThere
 
     attr_reader :subscription
 
-    def mail_next_issue
+    def mail_current_issue
       SubscriptionMailer.next_issue(id: subscription.id, email_id: current_issue.id).deliver_later
     end
 
