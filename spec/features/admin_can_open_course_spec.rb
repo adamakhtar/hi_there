@@ -10,6 +10,7 @@ feature "admin can open course" do
     click_button t('hi_there.courses.actions.open')
     
     expect(page).to have_content t('hi_there.courses.opened')
+    expect(page).to have_content t('hi_there.courses.current_state.opened')
     expect(page).to have_button(t('hi_there.courses.actions.close'))
     expect(page).to_not have_link t('hi_there.common.actions.edit')
     expect(page).to_not have_button(t('hi_there.courses.actions.open'))
