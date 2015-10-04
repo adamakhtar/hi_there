@@ -24,6 +24,7 @@ module HiThere
 
       state :completed
       state :unsubscribed
+      state :terminated
     end
 
     before_create :generate_token

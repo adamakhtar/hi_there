@@ -10,15 +10,23 @@ en:
         cancel: "Cancel"
     courses:
       created: 'Created your course. Now add some emails.'
+      current_state: 'Current state - %{current_state}'
       updated: 'Updated your course.'
       opened: 'This course is now open for subscriptions.'
       closed: 'This course is now closed for futher subscriptions.'
+      terminated: 'Successfully terminted this course. Existing subscribers will receive no more further emails.'
       actions:
         add_email: 'New email'
+        confirm_terminate: 'Are you sure? Existing subscribers will not be able to finish the course.'
         close: 'Close'
         new: 'Create course'
         open: 'Open'
         terminate: 'Terminate'
+      current_state:
+        draft: 'This course is currently a draft. Click open to start accepting subscriptions.'
+        closed: 'This course is active but currently closed for new subscriptions.'
+        opened: 'This course is active and accepting new subscriptions.'
+        terminated: 'This course has been terminated. No further emails are being sent.'       
       index:
         title: 'All courses'
       new:

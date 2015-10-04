@@ -10,15 +10,20 @@ module HiThere
     workflow do
       state :draft do
         event :open, :transitions_to => :opened
+        event :terminate, :transitions_to => :terminated 
       end
 
       state :opened do
         event :close, :transitions_to => :closed
+        event :terminate, :transitions_to => :terminated 
       end
 
       state :closed do
         event :open, :transitions_to => :opened
+        event :terminate, :transitions_to => :terminated 
       end
+
+      state :terminated
     end 
 
     def issue(number)

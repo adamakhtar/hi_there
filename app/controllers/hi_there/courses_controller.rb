@@ -58,6 +58,14 @@ module HiThere
       redirect_to course_path(course)
     end
 
+    def terminate
+      course = find_course
+      operation = TerminateCourse.new(course)
+      operation.perform
+      flash[:success] = t('hi_there.courses.terminated')
+      redirect_to course_path(course)
+    end
+
     protected
 
     def course_params

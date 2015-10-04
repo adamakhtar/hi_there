@@ -7,12 +7,27 @@
     <div class="page-actions">
       <div class="btn-toolbar">
         <div class="btn-group">
-          <% if @course.draft? %>
-            <%= button_to t('hi_there.courses.actions.open'), open_course_path(@course), class: 'btn btn-default', method: :put %>
+          <% if @course.draft? or @course.closed? %>
+            <%= button_to t('hi_there.courses.actions.open'),
+                          open_course_path(@course),
+                          class: 'btn btn-default',
+                          method: :put %>       
+
           <% elsif @course.opened? %>
-            <%= button_to t('hi_there.courses.actions.close'), close_course_path(@course), class: 'btn btn-default', method: :put %>
-          <% elsif @course.closed? %>
-            <%= button_to t('hi_there.courses.actions.open'), open_course_path(@course), class: 'btn btn-default', method: :put %>
+            <%= button_to t('hi_there.courses.actions.close'), 
+                          close_course_path(@course), 
+                          class: 'btn btn-default', 
+                          method: :put %>
+          <% end %>
+
+          <% unless @course.terminated? %>
+            <%= button_to t('hi_there.courses.actions.terminate'), 
+                          terminate_course_path(@course), 
+                          class: 'btn btn-default', 
+                          method: :put,
+                          data: { 
+                            confirm: t('hi_there.courses.actions.confirm_terminate') 
+                          } %>
           <% end %>
 
           <% if @course.draft? %>
@@ -23,6 +38,11 @@
     </div>
 
     <div class="page-body">
+
+      <div class="alert alert-notice">
+        <%= t("hi_there.courses.current_state.#{@course.current_state}") %>
+      </div>
+
       <table class="table">
         <thead>
           <tr>

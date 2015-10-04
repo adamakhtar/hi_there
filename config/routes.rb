@@ -3,6 +3,7 @@ HiThere::Engine.routes.draw do
     member do 
       put :open
       put :close
+      put :terminate
     end
     resources :emails, except: :destroy do
       member { put :reorder }
