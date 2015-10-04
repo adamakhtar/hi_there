@@ -26,13 +26,19 @@
       <table class="table">
         <thead>
           <tr>
+            <th></th>
             <th>Subject</th>
             <th>Delivered after (days)</th>
+            <% if @course.draft? %>
+              <th></th>
+              <th></th>
+              <th></th>
+            <% end %>
           </tr>
         </thead>
 
         <tbody class="course-emails-list">
-          <%= render partial: 'hi_there/courses/email', collection: @emails %>
+          <%= render partial: 'hi_there/courses/email', collection: @emails, locals: {editable: @course.draft? } %>
         </tbody>
       </table>  
       <% unless params[:published] %>

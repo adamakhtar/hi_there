@@ -52,6 +52,20 @@ module HiThere
       end
     end
 
+    def reorder
+      with_editable_course do |course|
+        @course = course
+        email = find_email
+
+        case params[:direction]
+        when 'higher' then email.move_higher
+        when 'lower' then email.move_lower
+        end
+        
+        redirect_to course_path(@course)
+      end
+    end
+
     protected
 
     def find_course

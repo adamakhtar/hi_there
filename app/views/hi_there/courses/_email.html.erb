@@ -1,4 +1,10 @@
 <tr>
+  <td><%= email.issue_number %></td>
   <td><%= link_to email.subject, course_email_path(email.course, email) %></td>
   <td><%= email.interval %></td>
+  <% if email.course.draft? %>
+    <td><%= button_to "↑", reorder_course_email_path(email.course, email, direction: :higher), method: :put, class: 'btn btn-sm btn-default' %></td>
+    <td><%= button_to "↓", reorder_course_email_path(email.course, email, direction: :lower), method: :put, class: 'btn btn-sm btn-default' %></td>
+    <td><%= link_to "Edit", edit_course_email_path(email.course, email) %></td>
+  <% end %>
 </tr>

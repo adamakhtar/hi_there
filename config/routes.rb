@@ -4,7 +4,9 @@ HiThere::Engine.routes.draw do
       put :open
       put :close
     end
-    resources :emails, except: :destroy
+    resources :emails, except: :destroy do
+      member { put :reorder }
+    end
   end
 
   resources :subscriptions, only: [:new, :create]
