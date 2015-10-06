@@ -19,7 +19,7 @@ module HiThere
 
     describe "next_issue" do
       it "renders" do
-        email = create(:email, subject: 'Welcome', body: 'Hi there')
+        email = create(:email, subject: 'Welcome', body: 'Hi *there*')
         subscription = create(:subscription, email: 'adam@example.com')
 
         mail = SubscriptionMailer.next_issue(id: subscription.id, email_id: email.id)
@@ -27,7 +27,7 @@ module HiThere
         expect(mail.subject).to eq(email.subject)
         expect(mail.to).to eq([subscription.email])
         expect(mail.from).to eq([HiThere.from])
-        expect(mail.body.encoded).to include(email.body)
+        expect(mail.body.encoded).to include('<p>Hi <em>there</em></p>')
         expect(mail.body.encoded).to include(unsubscribe_subscription_path(token: subscription.token))
       end
     end

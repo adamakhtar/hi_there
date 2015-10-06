@@ -1,11 +1,11 @@
-require "hi_there/engine"
-require "acts_as_list"
-require "email_validator"
+require 'hi_there/engine'
+require 'acts_as_list'
+require 'email_validator'
 require 'jquery-rails'
 require 'jquery-ui-rails'
-require "kaminari"
-require "simple_form"
-require "workflow"
+require 'kaminari'
+require 'simple_form'
+require 'workflow'
 
 module HiThere
   mattr_accessor :app_domain,

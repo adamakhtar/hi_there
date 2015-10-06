@@ -15,6 +15,7 @@ module HiThere
     def next_issue(id:, email_id:)
       @subscription = Subscription.find(id)
       @email = Email.find(email_id)
+      @body  = RenderEmail.new(@email).perform
 
       mail(
         reply_to: HiThere.reply_to,

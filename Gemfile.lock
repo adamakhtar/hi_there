@@ -7,6 +7,7 @@ PATH
       jquery-rails (~> 4.0.0)
       jquery-ui-rails (~> 5.0.0)
       kaminari (~> 0.16.0)
+      kramdown
       rails (~> 4.2.4)
       simple_form (~> 3.1.0)
       workflow (~> 1.2.0)
@@ -91,6 +92,7 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    kramdown (1.8.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     loofah (2.0.3)
