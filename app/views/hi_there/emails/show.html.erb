@@ -25,7 +25,7 @@
       </div>
 
       <div class="email-body">
-        <%= simple_format @email.body %>
+        <%= @body.html_safe %>
       </div>
     </div>
   </div>

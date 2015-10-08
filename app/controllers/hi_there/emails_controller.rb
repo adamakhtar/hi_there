@@ -8,6 +8,7 @@ module HiThere
     def show
       @course = find_course
       @email = find_email
+      @body = RenderEmail.new(@email).perform
     end
 
     def new
