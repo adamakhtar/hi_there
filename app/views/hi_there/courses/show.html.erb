@@ -23,6 +23,8 @@
           <% if @course.draft? %>
             <%= link_to t('hi_there.common.actions.edit'), edit_course_path(@course), class: 'btn btn-default' %>          
           <% end %>
+
+          <%= link_to t('hi_there.courses.actions.subscriptions'), course_subscriptions_path(@course), class: 'btn btn-default' %>
         </div>
 
         <div class="btn-group pull-right">

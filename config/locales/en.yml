@@ -22,6 +22,7 @@ en:
         new: 'Create course'
         open: 'Open'
         terminate: 'Terminate'
+        subscriptions: 'Subscriptions'
       current_state:
         draft: 'This course is currently a draft. Click open to start accepting subscriptions.'
         closed: 'This course is active but currently closed for new subscriptions.'

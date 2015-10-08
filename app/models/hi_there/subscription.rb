@@ -36,5 +36,9 @@ module HiThere
     def update_next_issue!(issue_number:, delivery_at:)
       update_attributes!(next_issue_number: issue_number, next_delivery_at: delivery_at)
     end
+
+    def previous_issue_number 
+      [next_issue_number - 1, 0].max
+    end
   end
 end

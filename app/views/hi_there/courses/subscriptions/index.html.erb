@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="page">
+    <div class="page-header">
+      <h1 class="page-title"><%= @course.title %></h1>
+    </div>
+
+    <div class="page-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Current issue</th>
+            <th>Opted in at</th>
+          </tr>
+        </thead>
+
+        <tbody class="course-emails-list">
+          <%= render partial: 'hi_there/courses/subscriptions/subscription', collection: @subscriptions %>
+        </tbody>
+      </table>  
+      <% unless params[:published] %>
+        <div class="list-footer">
+          <div class="btn-toolbar">
+            <div class="btn-group">
+              <% if @course.draft? %>
+                <%= link_to t('hi_there.courses.actions.add_email'), new_course_email_path(@course), class: 'btn btn-default' %>
+              <% end %>
+            </div>
+          </div>
+        </div>  
+      <% end %>
+    </div>
+  </div>
+</div>
