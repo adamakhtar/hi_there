@@ -10,6 +10,12 @@ HiThere::Engine.routes.draw do
     end
   end
 
+  resources :emails, only: nil do
+    resource :preview, only: nil do
+      member { get :deliver }
+    end 
+  end
+
   resources :subscriptions, only: [:new, :create]
 
   get 'confirmation_required' => 'subscriptions#confirmation_required'

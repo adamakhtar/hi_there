@@ -37,6 +37,10 @@ en:
       delivered_on_day: 'Delivered on day %{interval}'
       new:
         title: 'Create a new email'
+    previews:
+      delivered: 'Email was delivered.'
+      actions:
+        send_email: 'Send preview email'
     subscriptions:
       subscribe: 'Subscribe'
       confirmation_required: 'Thank you for subscribing. To confirm your subscription please click the link we have just emailed you.'

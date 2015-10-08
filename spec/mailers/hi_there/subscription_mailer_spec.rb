@@ -31,6 +31,19 @@ module HiThere
         expect(mail.body.encoded).to include(unsubscribe_subscription_path(token: subscription.token))
       end
     end
+
+    describe "preview_email" do
+      it "renders" do
+        email = create(:email, subject: 'Welcome', body: 'Hi *there*')
+        
+        mail = SubscriptionMailer.preview_email(id: email.id, to: 'admin@example.com')
+
+        expect(mail.subject).to eq(email.subject)
+        expect(mail.to).to eq(['admin@example.com'])
+        expect(mail.from).to eq([HiThere.from])
+        expect(mail.body.encoded).to include('<p>Hi <em>there</em></p>')
+      end
+    end
   end
 end
 

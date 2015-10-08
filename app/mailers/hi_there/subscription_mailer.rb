@@ -24,5 +24,19 @@ module HiThere
         subject: @email.subject
       )
     end
+
+    def preview_email(id:, to:)      
+      @email = Email.find(id)
+      @body = RenderEmail.new(@email).perform
+      @subscription = Subscription.new(token: 'dummy')
+
+      mail(
+        reply_to: HiThere.reply_to,
+        from: HiThere.from, 
+        to: to,
+        subject: @email.subject,
+        template_name: 'next_issue'
+      )
+    end
   end
 end
