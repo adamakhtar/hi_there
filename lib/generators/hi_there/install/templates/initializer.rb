@@ -14,6 +14,14 @@ HiThere.current_user_method = :<%= current_user_method %>
 # Where to redirect users if they are unauthorized
 HiThere.redirect_unauthorized_path = '/'
 
+# The dashboard will have a link back to somewhere in your 
+# app for convenience. You can set it here. 
+# Note you will have to write it out yourself as path helpers
+# are not available in initializers.
+# e.g. /admin 
+HiThere.return_to_main_app_path = '/'
+
+
 # The domain of your app e.g. "myfabapp.com", "app.myfabapp.com" etc.
 # Used to construct the confirm your email link.
 HiThere.app_domain = "example.com"

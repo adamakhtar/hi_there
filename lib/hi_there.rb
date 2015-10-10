@@ -14,6 +14,7 @@ module HiThere
                  :from,
                  :per_page,
                  :redirect_unauthorized_path, 
+                 :return_to_main_app_path, 
                  :reply_to,
                  :user_class
 
@@ -40,6 +41,10 @@ module HiThere
 
     def redirect_unauthorized_path
       @@redirect_unauthorized_path ||= '/'
+    end
+
+    def return_to_main_app_path
+      @@return_to_main_app_path ||= '/'
     end
 
     def reply_to

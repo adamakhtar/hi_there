@@ -52,6 +52,9 @@ en:
       delivered_after: 'Delivered after %{interval} days.'
       new:
         title: 'Create a new email'
+    nav:
+      courses: 'Courses'
+      back_to_main_app: 'Back to main app'
     previews:
       delivered: 'Email was delivered.'
       actions:
