@@ -6,7 +6,7 @@
   <%= javascript_include_tag "hi_there/application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= body_classes %>">
   <%= render partial: 'hi_there/application/navbar' %>
   <%= render partial: 'hi_there/application/flashes' %>
   <%= yield %>
