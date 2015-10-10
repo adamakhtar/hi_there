@@ -6,8 +6,8 @@ module HiThere
     before_filter :deny_bots, only: :create
 
     def new
-      course = Course.find(params[:course_id])
-      @subscription = Subscription.new(course: course)
+      @course = Course.find(params[:course_id])
+      @subscription = Subscription.new(course: @course)
     end 
 
     def create

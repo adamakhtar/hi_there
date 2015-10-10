@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HiThere</title>
+  <%= stylesheet_link_tag    "hi-there", media: "all" %>
+  <%= javascript_include_tag "hi_there/application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="<%= body_classes %>">
+  <%= render partial: 'hi_there/application/flashes' %>
+  <%= yield %>
+</body>
+</html>		

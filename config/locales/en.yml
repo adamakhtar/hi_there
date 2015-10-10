@@ -54,10 +54,14 @@ en:
       actions:
         send_email: 'Send preview email'
     subscriptions:
-      subscribe: 'Subscribe'
-      confirmation_required: 'Thank you for subscribing. To confirm your subscription please click the link we have just emailed you.'
-      confirmed: 'Thank you. You are now subscribed.'
-      invalid: "Sorry but that doesn't exist anymore."
+      confirmation_required: 'One last thing. To confirm your subscription please click the link we have just emailed you.'
+      confirmed: 'You are now subscribed.'
+      invalid: "But that doesn't exist anymore."
+      sorry: 'Sorry'
+      thank_you: 'Thank you'
+      forms:
+        email_placeholder: 'Your email address'
+        subscribe: 'Sign up'
     subscription_mailer:
       confirm_your_email:
         subject: 'Please confirm your email'
