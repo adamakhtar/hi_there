@@ -71,7 +71,7 @@
               <%= render partial: 'hi_there/courses/email', collection: @emails, locals: {editable: @course.draft? } %>
             </tbody>
           </table>  
-        <% else %>
+        <% elsif @emails.empty? and @course.draft? %>
           <div class="blank-slate-notice">
             <%= t('hi_there.courses.no_emails') %>
           </div>
