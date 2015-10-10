@@ -46,3 +46,17 @@ then in the hi-there.scss file mentioned above add the following
 Which will use bootstrap via the bootstrap-sass gem to "jazz" things up a bit. 
 
 You can add further stylings after the `@import` decalaration if you require further customization. 
+
+## Customizing sent emails
+
+Subscribers will receive two email types:
+
+1. "A thank you for signing up. Please confirm your email" email.
+2. The scheduled emails from your course with an unsubscribe link at the bottom.
+
+If you want to customize these emails you can copy the mailer views they use to your app via:
+
+```sh
+rails g hi_there:mailer_views
+```
+
