@@ -1,7 +1,7 @@
 en:
   hi_there:
     common:
-      not_authorized: "Sorry you can't do that."
+      unauthorized: "Sorry you can't do that."
       actions:
         new: "New"
         edit: "Edit"
@@ -9,12 +9,14 @@ en:
         save: "Save"
         cancel: "Cancel"
     courses:
+      general_title: 'Courses'
       created: 'Created your course. Now add some emails.'
       current_state: 'Current state - %{current_state}'
       updated: 'Updated your course.'
       opened: 'This course is now open for subscriptions.'
       closed: 'This course is now closed for futher subscriptions.'
       terminated: 'Successfully terminted this course. Existing subscribers will receive no more further emails.'
+      no_emails: "You haven't added any emails yet. Add one by clicking 'New email' above"
       actions:
         add_email: 'New email'
         confirm_terminate: 'Are you sure? Existing subscribers will not be able to finish the course.'
@@ -32,10 +34,17 @@ en:
         title: 'All courses'
       new:
         title: 'Create a new course'
+      edit:
+        title: 'Edit course details'
+      new:
+        title: 'New course details'
+      subscriptions: 
+        index:
+          title: 'All subscriptions (%{count})'
     emails:
       created: 'The email was saved and added to your course.'
       updated: 'Updated your email.'
-      delivered_on_day: 'Delivered on day %{interval}'
+      delivered_after: 'Delivered after %{interval} days.'
       new:
         title: 'Create a new email'
     previews:

@@ -1,0 +1,15 @@
+<%= simple_form_for [course, email] do |f| %>
+  <div class="input-row">
+    <%= f.input :subject %>
+    <%= f.input :interval, required: true, label: 'Released after' do %>
+      <div class="input-group">
+        <%= f.input_field :interval, class: 'form-control' %>
+        <span class="input-group-addon">day(s)</span>
+      </div>
+    <% end %>
+  </div>
+
+  <%= f.input :body %>
+  <%= f.submit email.persisted? ? t('hi_there.common.actions.update') : t('hi_there.common.actions.save'), class: 'btn btn-primary' %>
+  <%= link_to t('hi_there.common.actions.cancel'), email.persisted? ? course_email_path(course, email) : course_path(course), class: 'btn btn-default' %>
+<% end %>

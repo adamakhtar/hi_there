@@ -1,29 +1,26 @@
-<div class="container">
-  <div class="page">
-    <div class="page-header">
-      <h1 class="page-title"><%= link_to "How to lose weight in 7 days", course_path(@course) %></h1>
-    </div>
+<div class="page">   
+  <%= render partial: 'hi_there/shared/page_header', 
+             locals: {
+               title: link_to(@course.title, course_path(@course)), 
+               meta: t("hi_there.courses.current_state.#{@course.current_state}")
+             } %>
 
-
-    <div class="page-actions">
+  <div class="page-actions">
+    <div class="container">
       <div class="btn-toolbar">
         <div class="btn-group">
-          <%= link_to t('hi_there.common.actions.edit'), edit_course_email_path(@course, @email), class: 'btn btn-default' %>
+          <% if @course.draft? %>
+            <%= link_to t('hi_there.common.actions.edit'), edit_course_email_path(@course, @email), class: 'btn btn-default' %>
+          <% end %>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="page-body">
-
-      <div class="email-header">
-        <div class="email-subject">
-          <h4><%= @email.subject %></h4>
-        </div>
-        <div class="email-interval">
-          <h4>Delivered on day <%= t('hi_there.emails.delivered_on_day', interval: @email.interval) %></h4>
-        </div>
-      </div>
-
+  <div class="page-body">
+    <div class="container">
+      <h2 class="page-subtitle"><%= @email.subject %></h2>
+      <h5 class="email-interval"><%= t('hi_there.emails.delivered_after', interval: @email.interval) %></h5>
       <div class="email-body">
         <%= @body.html_safe %>
       </div>

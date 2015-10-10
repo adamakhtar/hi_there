@@ -10,7 +10,7 @@ feature "admin can edit email" do
     click_link email.subject
     click_link t('hi_there.common.actions.edit')
     fill_in 'Subject', with: 'The last chapter'
-    fill_in 'Interval', with: '13'
+    fill_in 'Released after', with: '13'
     fill_in 'Body', with: 'compelling text'
     click_button t('hi_there.common.actions.update')
 

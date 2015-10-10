@@ -15,7 +15,7 @@ module HiThere
     end
 
     def redirect_unauthorized
-      flash[:alert] = t('hi_there.access_denied')
+      flash[:alert] = t('hi_there.unauthorized')
       redirect_to HiThere.redirect_unauthorized_path
     end
 

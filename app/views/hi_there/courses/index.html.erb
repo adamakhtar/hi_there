@@ -1,29 +1,36 @@
-<div class="container">
-  <div class="page">
-    <div class="page-header">
-      <h1 class="page-title"><%= t('hi_there.courses.index.title') %></h1>
-    </div>
+<div class="page">
+  <%= render partial: 'hi_there/shared/page_header', 
+             locals: { title: t('hi_there.courses.index.title') } %>
+                     
 
-    <div class="page-actions">
+  <div class="page-actions">
+    <div class="container">
       <div class="btn-toolbar">
         <div class="bth-group">
           <%= link_to t('hi_there.courses.actions.new'), new_course_path, class: 'btn btn-default' %>
         </div>
       </div>  
     </div>
+  </div>
 
-    <div class="page-body">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Name</th>
-          </tr>
-        </thead>
+  <div class="page-body">
+    <div class="container">
+      <% if @courses.any? %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Status</th>
+            </tr>
+          </thead>
 
-        <tbody>
-          <%= render partial: @courses %>
-        </tbody>
-      </table>
+          <tbody>
+            <%= render partial: @courses %>
+          </tbody>
+        </table>
+      <% else %>
+
+      <% end %>
     </div>
   </div>
 </div>

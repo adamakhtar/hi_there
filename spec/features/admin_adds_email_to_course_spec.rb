@@ -9,7 +9,7 @@ feature "admin adds email to a course" do
     click_link t('hi_there.courses.actions.add_email')
     fill_in 'Subject', with: 'Part 1 Email'
     fill_in 'Body', with: 'blah blah blah'
-    fill_in 'Interval', with: '23'
+    fill_in 'Released after', with: '23'
     click_button t('hi_there.common.actions.save') 
 
     expect(page).to have_content t('hi_there.emails.created')

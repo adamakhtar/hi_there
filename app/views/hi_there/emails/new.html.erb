@@ -1,40 +1,14 @@
-<div class="container">
-    <div class="page">
-      <div class="page-header">
-        <h1 class="page-title"><%= link_to "How to lose weight in 7 days", course_path(@course) %></h1>
-      </div>
+<div class="page">
+  <%= render partial: 'hi_there/shared/page_header', 
+             locals: {
+               title:  link_to(@course.title, course_path(@course))
+             } %>
 
-
-      <div class="page-actions">
-        <div class="btn-toolbar">
-          <div class="btn-group">
-            
-          </div>
-        </div>
-      </div>
-
-      <div class="page-body">
-
-        <div class="email-header">
-          <div class="email-subject">
-            <h4><%= t('hi_there.emails.new.title') %></h4>
-          </div>
-        </div>
-
-        <%= simple_form_for [@course, @email] do |f| %>
-          <div class="row">
-            <%= f.input :subject, wrapper_html: {class: 'col-sm-10'} %>
-            <%= f.input :interval, 
-                        hint: 'days since last email',
-                        wrapper_html: {class: 'col-sm-2'} %>
-          </div>
-          <%= f.input :body %>
-          <div class="form-actions">
-            <%= link_to t('hi_there.common.actions.cancel'), course_path(@course), class: 'btn btn-default' %>
-            <%= f.submit t('hi_there.common.actions.save'), class: 'btn btn-default' %>
-          </div>
-        <% end %>
-          
-      </div>
+  <div class="page-body">
+    <div class="container">
+      <h2 class="page-subtitle"><%= t('hi_there.emails.new.title') %></h2>
+      <%= render partial: 'form', locals: { course: @course, email: @email } %>
     </div>
+  </div>
 </div>
+

@@ -1,0 +1,8 @@
+<%= simple_form_for course do |f| %>    
+  <%= f.input :title %>
+  <%= f.submit course.persisted? ? t('hi_there.common.actions.update') : t('hi_there.common.actions.save'), 
+              class: 'btn btn-primary' %>
+  <%= link_to t('hi_there.common.actions.cancel'), 
+              course.persisted? ? course_path(course) : courses_path, 
+              class: 'btn btn-default' %>
+<% end %>
