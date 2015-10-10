@@ -3,6 +3,7 @@ require_dependency "hi_there/application_controller"
 module HiThere
   class SubscriptionsController < ApplicationController
     skip_before_filter :ensure_authorized
+    before_filter :deny_bots, only: :create
 
     def new
       course = Course.find(params[:course_id])
@@ -43,6 +44,11 @@ module HiThere
     end
 
     protected
+
+    def deny_bots
+      # Lie to the bot that the subscription was created.
+      head(:created) if params[:secret_field].present?
+    end
 
     def find_subscription_by_token
       Subscription.where(token: params[:token]).take!

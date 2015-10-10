@@ -6,6 +6,17 @@ module HiThere
       @routes = HiThere::Engine.routes
     end
 
+    describe "#create" do
+      context "when bot" do
+        it "fakes success" do
+          post :create, secret_field: "honeytrap"
+
+          expect(response).to be_created
+          expect(Subscription.count).to eq 0
+        end
+      end
+    end
+
     describe "#destroy" do
       context "when valid subscription" do
         it "is success" do
