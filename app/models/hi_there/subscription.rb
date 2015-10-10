@@ -1,3 +1,5 @@
+require 'csv'
+
 module HiThere
   class Subscription < ActiveRecord::Base
     include Workflow
@@ -24,6 +26,21 @@ module HiThere
     end
 
     before_create :generate_token
+
+    def self.to_csv(options = {})
+      CSV.generate(options) do |csv|
+        csv << ['Email', 'Status', 'Opted In', 'Current issue', 'Next issue']
+        find_each do |subscription|
+          csv << [
+            subscription.email,
+            subscription.current_state,
+            subscription.created_at,
+            subscription.previous_issue_number,
+            subscription.next_issue_number
+          ]
+        end
+      end
+    end
 
     def self.overdue
       where('next_delivery_at < ?', Time.current)

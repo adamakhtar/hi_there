@@ -4,6 +4,11 @@ module HiThere
       def index
         @course = find_course
         @subscriptions = @course.subscriptions
+
+        respond_to do |format|
+          format.html
+          format.csv { send_data @subscriptions.to_csv }
+        end
       end
 
       private

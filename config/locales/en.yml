@@ -41,6 +41,8 @@ en:
       new:
         title: 'New course details'
       subscriptions: 
+        actions:
+          export: 'Download CSV'      
         index:
           title: 'All subscriptions (%{count})'
     emails:
