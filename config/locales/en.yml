@@ -30,6 +30,8 @@ en:
         closed: 'This course is active but currently closed for new subscriptions.'
         opened: 'This course is active and accepting new subscriptions.'
         terminated: 'This course has been terminated. No further emails are being sent.'       
+      forms:
+        name_hint: 'Your subscribers will not see this.'
       index:
         title: 'All courses'
       new:

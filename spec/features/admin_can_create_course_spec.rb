@@ -7,6 +7,7 @@ feature "admin can create course" do
 
     click_link t('hi_there.courses.actions.new')
     fill_in 'Title', with: 'How to be rich'
+    fill_in 'Name', with: 'rich_101'
     click_button t('hi_there.common.actions.save') 
 
     expect(page).to have_content t('hi_there.courses.created')

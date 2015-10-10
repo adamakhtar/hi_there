@@ -6,6 +6,7 @@ module HiThere
     has_many :subscriptions
 
     validates :title, presence: true, uniqueness: true
+    validates :name, format: {with: /\A[a-z_\d]+\z/}
     
     workflow do
       state :draft do
