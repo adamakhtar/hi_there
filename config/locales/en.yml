@@ -20,6 +20,7 @@ en:
       actions:
         add_email: 'New email'
         confirm_terminate: 'Are you sure? Existing subscribers will not be able to finish the course.'
+        confirm_open: 'Are you sure? Once a course is opened it can never be edited again.'
         close: 'Close'
         new: 'Create course'
         open: 'Open'
