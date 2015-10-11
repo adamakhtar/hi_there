@@ -18,7 +18,7 @@ en:
       terminated: 'Successfully terminted this course. Existing subscribers will receive no more further emails.'
       no_emails: "You haven't added any emails yet. Add one by clicking 'New email' above"
       actions:
-        add_email: 'New email'
+        add_email: 'Add email'
         confirm_terminate: 'Are you sure? Existing subscribers will not be able to finish the course.'
         confirm_open: 'Are you sure? Once a course is opened it can never be edited again.'
         close: 'Close'

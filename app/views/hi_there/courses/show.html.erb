@@ -33,7 +33,9 @@
                                    is_disabled: !@course.draft?,
                                    class: 'btn btn-default',                                   
                                    ) %>                                   
+          </div>
 
+          <div class="btn-group">
             <%= link_to_with_state(link: t('hi_there.courses.actions.add_email'),
                                    path: new_course_email_path(@course),
                                    is_disabled: !@course.draft?,
