@@ -5,6 +5,8 @@
                  meta: t("hi_there.courses.current_state.#{@course.current_state}")
                } %>
 
+    <%= render partial: 'hi_there/courses/tabs', locals: { course: @course } %>
+
     <div class="page-actions">
       <div class="container">
         <div class="btn-toolbar">
@@ -41,10 +43,6 @@
                                    is_disabled: !@course.draft?,
                                    class: 'btn btn-default',                                   
                                    ) %>                                                                     
-          </div>
-
-          <div class="btn-group">                                   
-            <%= link_to t('hi_there.courses.actions.subscriptions'), course_subscriptions_path(@course), class: 'btn btn-default' %>
           </div>
 
           <div class="btn-group pull-right">

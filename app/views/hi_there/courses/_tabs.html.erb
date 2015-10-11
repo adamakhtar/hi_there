@@ -1,0 +1,14 @@
+<div class="page-subnav">
+  <div class="container">
+    <ul class="nav nav-tabs">
+      <li class="<%= add_active_class_if(current_action?(controller: 'courses', action: 'show')) %>">
+        <%= link_to 'Emails', course_path(course) %>
+      </li>
+
+      <li class="<%= add_active_class_if(current_action?(controller: 'subscriptions', action: 'index')) %>">
+        <%= link_to 'Subscriptions', course_subscriptions_path(course) %>
+      </li>
+    </ul>
+  </div>
+</div>
+

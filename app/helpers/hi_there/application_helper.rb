@@ -1,7 +1,15 @@
 module HiThere
-  module ApplicationHelper
+  module ApplicationHelper    
+    def add_active_class_if(condition)
+      "active" if condition
+    end
+
     def body_classes
       "hi_there_#{controller_name} hi_there_#{controller_name}_#{action_name}"
+    end
+
+    def current_action?(controller:, action:)
+      (controller_name == controller.to_s and action_name == action.to_s)
     end
 
     def link_to_with_state(link:, path:, is_disabled: false, is_active: false, is_dangerous: false, confirm_message: nil, **options)
