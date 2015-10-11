@@ -27,6 +27,8 @@ module HiThere
 
     before_create :generate_token
 
+    validates :email, email: true
+
     def self.to_csv(options = {})
       CSV.generate(options) do |csv|
         csv << ['Email', 'Status', 'Opted In', 'Current issue', 'Next issue']
