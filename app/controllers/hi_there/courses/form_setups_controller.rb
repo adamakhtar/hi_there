@@ -1,16 +1,10 @@
 require_dependency "hi_there/application_controller"
-
 module HiThere
   module Courses
-    class SubscriptionsController < ApplicationController
+    class FormSetupsController < ApplicationController
+
       def index
         @course = find_course
-        @subscriptions = @course.subscriptions
-
-        respond_to do |format|
-          format.html
-          format.csv { send_data @subscriptions.to_csv }
-        end
       end
 
       private

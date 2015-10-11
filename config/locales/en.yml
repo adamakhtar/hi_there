@@ -41,6 +41,10 @@ en:
         title: 'Edit course details'
       new:
         title: 'New course details'
+
+      form_setup:
+        index:
+          title: 'Setup your optin form'
       subscriptions: 
         actions:
           export: 'Download CSV'      

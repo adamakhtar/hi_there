@@ -8,6 +8,10 @@
       <li class="<%= add_active_class_if(current_action?(controller: 'subscriptions', action: 'index')) %>">
         <%= link_to 'Subscriptions', course_subscriptions_path(course) %>
       </li>
+
+      <li class="<%= add_active_class_if(current_action?(controller: 'form_setups', action: 'index')) %>">
+        <%= link_to 'Form setup', course_form_setups_path(course) %>
+      </li>
     </ul>
   </div>
 </div>

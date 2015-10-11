@@ -1,0 +1,33 @@
+<div class="page">
+  <%= render partial: 'hi_there/shared/page_header', 
+             locals: {
+               title: link_to(@course.title, course_path(@course)), 
+               meta: t("hi_there.courses.current_state.#{@course.current_state}")               
+             } %>     
+
+  <%= render partial: 'hi_there/courses/tabs', locals: { course: @course } %>
+  
+  <div class="page-body">
+    <div class="container">
+      <h2 class="page-subtitle"><%= t('hi_there.courses.form_setup.index.title', count: @course.subscriptions.count ) %></h2>
+
+      <div class="text-column">
+        <p>Add the following to a controller and view you want to start collecting optin's:<p>
+
+        <h4>Controller</h4>
+        <pre>
+          <code>
+            <%= snippet_for_controller(@course) %>
+          </code>
+        </pre>
+
+        <h4>View</h4>
+        <pre>
+          <code>
+            <%= snippet_for_view %>
+          </code>
+        </pre>
+      </div>
+    </div>
+  </div>
+</div>

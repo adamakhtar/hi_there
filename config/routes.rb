@@ -8,6 +8,7 @@ HiThere::Engine.routes.draw do
     resources :emails, except: :destroy do
       member { put :reorder }
     end
+    resources :form_setups, only: :index, controller: 'courses/form_setups'
     resources :subscriptions, only: :index, controller: 'courses/subscriptions'
   end
 
