@@ -9,9 +9,11 @@
     <div class="container">
       <div class="btn-toolbar">
         <div class="btn-group">
-          <% if @course.draft? %>
-            <%= link_to t('hi_there.common.actions.edit'), edit_course_email_path(@course, @email), class: 'btn btn-default' %>
-          <% end %>
+          <%= link_to_with_state(link: t('hi_there.common.actions.edit'),
+                                 path: edit_course_email_path(@course, @email),
+                                 is_disabled: !@course.draft?,                                                             
+                                 class: 'btn btn-default'
+                                 ) %>
         </div>
       </div>
     </div>
