@@ -14,7 +14,8 @@ module HiThere
       @subscription = CreateSubscription.new(subscription_params).perform
       if @subscription.valid?
         redirect_to confirmation_required_path
-      else
+      else 
+        @course = @subscription.course
         render :new
       end
     end
