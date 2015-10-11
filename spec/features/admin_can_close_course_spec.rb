@@ -11,8 +11,5 @@ feature "admin can close course" do
     
     expect(page).to have_content t('hi_there.courses.closed')
     expect(page).to have_content t('hi_there.courses.current_state.closed')
-    expect(page).to have_link(t('hi_there.courses.actions.open'))
-    expect(page).to_not have_link t('hi_there.common.actions.edit')
-    expect(page).to_not have_link(t('hi_there.courses.actions.close'))
   end
 end
