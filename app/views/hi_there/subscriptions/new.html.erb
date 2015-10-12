@@ -2,6 +2,7 @@
   <div class="sub-box">
     <div class="sub-box-body">
       <h1 class="sub-box-title"><%= @course.title %></h1>
+      <p class="lead"><%= @course.description %></p>
       <%= simple_form_for @subscription do |f| %>
         <%= text_field_tag :secret_field %>
         <%= f.input :email, label: false, placeholder: t('hi_there.subscriptions.forms.email_placeholder')  %>

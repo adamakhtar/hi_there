@@ -8,7 +8,8 @@ module HiThere
         
         <h1>My home page</h1>
         <% if @course and @course.opened? %>
-          <%= @course.title %>
+          <h2><%= @course.title %></h2>
+          <p><%= @course.description %></p>
           <%= simple_form_for @subscription, url: hi_there.subscriptions_path do |f| %>
             <%= text_field_tag :secret_field %>
             <%= f.input :email %>

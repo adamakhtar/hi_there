@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151010080133) do
+ActiveRecord::Schema.define(version: 20151012124352) do
 
   create_table "hi_there_courses", force: :cascade do |t|
     t.string   "title"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20151010080133) do
     t.datetime "updated_at",     null: false
     t.string   "workflow_state"
     t.string   "name"
+    t.text     "description"
   end
 
   add_index "hi_there_courses", ["name"], name: "index_hi_there_courses_on_name"
