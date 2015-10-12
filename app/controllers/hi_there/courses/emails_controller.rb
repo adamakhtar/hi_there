@@ -56,6 +56,21 @@ module HiThere
         end
       end
 
+      def destroy
+        with_editable_course do |course|
+          @course = course
+          email = find_email
+
+          if email.destroy
+            flash[:success] = t('hi_there.emails.deleted')
+          else
+            flash[:error] = t('hi_there.emails.not_deleted')
+          end
+
+          redirect_to course_emails_path(@course)
+        end
+      end
+
       def reorder
         with_editable_course do |course|
           @course = course

@@ -15,9 +15,21 @@
                                  class: 'btn btn-default'
                                  ) %>
         </div>
+
         <div class="btn-group">
           <%= link_to_with_state(link: t('hi_there.previews.actions.send_email'),
                                  path: deliver_email_preview_path(@course, @email),                                 
+                                 class: 'btn btn-default'
+                                 ) %>
+        </div>
+        
+        <div class="btn-group pull-right">
+          <%= link_to_with_state(link: t('hi_there.emails.actions.delete'),
+                                 path: course_email_path(@course, @email),
+                                 is_disabled: !@course.draft?,
+                                 is_dangerous: true,
+                                 confirm_message: t('hi_there.emails.actions.confirm_delete'),
+                                 method: :delete,
                                  class: 'btn btn-default'
                                  ) %>
         </div>

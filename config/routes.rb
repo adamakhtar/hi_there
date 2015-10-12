@@ -5,7 +5,7 @@ HiThere::Engine.routes.draw do
       put :close
       put :terminate
     end
-    resources :emails, except: :destroy, controller: 'courses/emails' do
+    resources :emails, controller: 'courses/emails' do
       member { put :reorder }
     end
     resources :form_setups, only: :index, controller: 'courses/form_setups'

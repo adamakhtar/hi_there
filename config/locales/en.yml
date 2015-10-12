@@ -44,9 +44,14 @@ en:
     emails:
       created: 'The email was saved and added to your course.'
       updated: 'Updated your email.'
+      deleted: 'The email was deleted.'
+      not_deleted: "Hmm... for some reason I couldn't delete that email. Can you try again?"
       delivered_after: 'Delivered after %{interval} days.'
       new:
         title: 'Create a new email'
+      actions:
+        delete: 'Delete'
+        confirm_delete: 'Are you sure you want to delete this email?'
     form_setups:
       index:
         title: 'Setup your optin form'
