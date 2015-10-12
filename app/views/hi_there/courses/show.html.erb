@@ -37,14 +37,6 @@
                                    ) %>                                   
           </div>
 
-          <div class="btn-group">
-            <%= link_to_with_state(link: t('hi_there.courses.actions.add_email'),
-                                   path: new_course_email_path(@course),
-                                   is_disabled: !@course.draft?,
-                                   class: 'btn btn-default',                                   
-                                   ) %>                                                                     
-          </div>
-
           <div class="btn-group pull-right">
             <%= link_to_with_state(link: t('hi_there.courses.actions.terminate'),
                                    path: terminate_course_path(@course),
@@ -60,31 +52,18 @@
     </div>
 
     <div class="page-body">
-      <div class="container">
-        
-        <h2 class="page-subtitle">Email schedule</h2>
-
-        <% if @emails.any? %>
-          <table class="course-emails-list table">
-            <thead>
-              <tr>
-                <th>Subject</th>
-                <th>Days</th>
-                <% if @course.draft? %>
-                  <th></th>
-                <% end %>
-              </tr>
-            </thead>
-
-            <tbody class="course-emails-list">
-              <%= render partial: 'hi_there/courses/email', collection: @emails, locals: {editable: @course.draft? } %>
-            </tbody>
-          </table>  
-        <% elsif @emails.empty? and @course.draft? %>
-          <div class="blank-slate-notice">
-            <%= t('hi_there.courses.no_emails') %>
+      <div class="container">          
+        <div class="row">
+          <div class="col-sm-6">
+            <h2 class="page-subtitle">Overview</h2>
+            <h5>Internal Name</h5>
+            <p class="data-value"><%= @course.name %></p>
+            <h5>Title</h5>
+            <p class="data-value"><%= @course.title %></p>
+            <h5>Description</h5>
+            <p class="data-value"><%= @course.description %></p>        
           </div>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>

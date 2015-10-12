@@ -1,0 +1,53 @@
+  <div class="page">
+    <%= render partial: 'hi_there/shared/page_header', 
+               locals: {
+                 title: @course.title, 
+                 meta: t("hi_there.courses.current_state.#{@course.current_state}")
+               } %>
+
+    <%= render partial: 'hi_there/courses/tabs', locals: { course: @course } %>
+
+    <div class="page-actions">
+      <div class="container">
+        <div class="btn-toolbar">
+          <div class="btn-group">
+            <%= link_to_with_state(link: t('hi_there.courses.actions.add_email'),
+                                   path: new_course_email_path(@course),
+                                   is_disabled: !@course.draft?,
+                                   class: 'btn btn-default',                                   
+                                   ) %>                                                                     
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <div class="container">
+        
+        <h2 class="page-subtitle">Email schedule</h2>
+
+        <% if @emails.any? %>
+          <table class="course-emails-list table">
+            <thead>
+              <tr>
+                <th>Subject</th>
+                <th>Days</th>
+                <% if @course.draft? %>
+                  <th></th>
+                <% end %>
+              </tr>
+            </thead>
+
+            <tbody class="course-emails-list">
+              <%= render partial: 'hi_there/courses/email', collection: @emails, locals: {editable: @course.draft? } %>
+            </tbody>
+          </table>  
+        <% elsif @emails.empty? and @course.draft? %>
+          <div class="blank-slate-notice">
+            <%= t('hi_there.courses.no_emails') %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

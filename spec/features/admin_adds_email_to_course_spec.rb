@@ -5,7 +5,7 @@ feature "admin adds email to a course" do
     course = create(:course)
     signed_in_admin
     visit hi_there.course_path(course)
-
+    click_link 'Emails'
     click_link t('hi_there.courses.actions.add_email')
     fill_in 'Subject', with: 'Part 1 Email'
     fill_in 'Body', with: 'blah blah blah'

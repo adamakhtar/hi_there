@@ -2,7 +2,11 @@
   <div class="container">
     <ul class="nav nav-tabs">
       <li class="<%= add_active_class_if(current_action?(controller: 'courses', action: 'show')) %>">
-        <%= link_to 'Emails', course_path(course) %>
+        <%= link_to 'Overview', course_path(course) %>
+      </li>
+
+      <li class="<%= add_active_class_if(current_action?(controller: 'emails', action: 'index')) %>">
+        <%= link_to 'Emails', course_emails_path(course) %>
       </li>
 
       <li class="<%= add_active_class_if(current_action?(controller: 'subscriptions', action: 'index')) %>">

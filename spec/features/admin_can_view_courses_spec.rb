@@ -22,11 +22,7 @@ feature "admin can view courses" do
     visit hi_there.course_path(course)
 
     expect(page).to have_content course.title
-    within('.course-emails-list > tr:nth-child(1)') do
-      expect(page).to have_content email_a.subject
-    end
-    within('.course-emails-list > tr:nth-child(2)') do
-      expect(page).to have_content email_b.subject
-    end
+    expect(page).to have_content course.name
+    expect(page).to have_content course.description
   end 
 end

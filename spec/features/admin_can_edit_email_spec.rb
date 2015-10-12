@@ -7,6 +7,7 @@ feature "admin can edit email" do
     
     signed_in_admin
     visit hi_there.course_path(course)
+    click_link 'Emails'
     click_link email.subject
     click_link t('hi_there.common.actions.edit')
     fill_in 'Subject', with: 'The last chapter'
