@@ -3,7 +3,7 @@
     <div class="sub-box-body">
       <h1 class="sub-box-title"><%= @course.title %></h1>
       <%= simple_form_for @subscription do |f| %>
-        <%= hidden_field_tag :secret_field %>
+        <%= text_field_tag :secret_field %>
         <%= f.input :email, label: false, placeholder: t('hi_there.subscriptions.forms.email_placeholder')  %>
         <%= f.input :course_id, as: :hidden %>
         <%= f.submit t('hi_there.subscriptions.forms.subscribe'), class: 'btn btn-primary' %>

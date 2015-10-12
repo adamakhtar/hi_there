@@ -10,7 +10,7 @@ module HiThere
         <% if @course and @course.opened? %>
           <%= @course.title %>
           <%= simple_form_for @subscription, url: hi_there.subscriptions_path do |f| %>
-            <%= hidden_field_tag :secret_field %>
+            <%= text_field_tag :secret_field %>
             <%= f.input :email %>
             <%= f.input :course_id, as: :hidden %>
             <%= f.submit "Sign up" %>
