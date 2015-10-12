@@ -2,12 +2,12 @@ PATH
   remote: .
   specs:
     hi_there (0.0.1)
-      acts_as_list
+      acts_as_list (~> 0.7.0)
       email_validator (~> 1.6.0)
       jquery-rails (~> 4.0.0)
       jquery-ui-rails (~> 5.0.0)
       kaminari (~> 0.16.0)
-      kramdown
+      kramdown (~> 1.8.0)
       rails (~> 4.2.4)
       simple_form (~> 3.1.0)
       workflow (~> 1.2.0)
