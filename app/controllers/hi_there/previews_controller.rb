@@ -12,7 +12,7 @@ module HiThere
       @email = find_email
       SubscriptionMailer.preview_email(id: @email.id, to: HiThere.reply_to).deliver_later
       flash[:success] = t('hi_there.previews.delivered')
-      redirect_to email_preview_path(@email)
+      redirect_to course_email_path(@email.course, @email)
     end
 
     private
