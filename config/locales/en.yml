@@ -39,8 +39,11 @@ en:
         title: 'Create a new course'
       edit:
         title: 'Edit course details'
-      new:
-        title: 'New course details'
+      tabs:
+        overview: 'Overview'
+        emails: 'Emails'
+        subscriptions: 'Subscriptions'
+        form_setup: 'Form setup'
     emails:
       created: 'The email was saved and added to your course.'
       updated: 'Updated your email.'

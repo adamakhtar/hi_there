@@ -2,19 +2,19 @@
   <div class="container">
     <ul class="nav nav-tabs">
       <li class="<%= add_active_class_if(current_action?(controller: 'courses', action: 'show')) %>">
-        <%= link_to 'Overview', course_path(course) %>
+        <%= link_to t('hi_there.courses.tabs.overview'), course_path(course) %>
       </li>
 
       <li class="<%= add_active_class_if(current_action?(controller: 'emails')) %>">
-        <%= link_to 'Emails', course_emails_path(course) %>
+        <%= link_to t('hi_there.courses.tabs.emails'), course_emails_path(course) %>
       </li>
 
       <li class="<%= add_active_class_if(current_action?(controller: 'subscriptions', action: 'index')) %>">
-        <%= link_to 'Subscriptions', course_subscriptions_path(course) %>
+        <%= link_to t('hi_there.courses.tabs.subscriptions'), course_subscriptions_path(course) %>
       </li>
 
       <li class="<%= add_active_class_if(current_action?(controller: 'form_setups', action: 'index')) %>">
-        <%= link_to 'Form setup', course_form_setups_path(course) %>
+        <%= link_to t('hi_there.courses.tabs.form_setup'), course_form_setups_path(course) %>
       </li>
     </ul>
   </div>
