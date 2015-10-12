@@ -1,7 +1,8 @@
 <div class="page">
   <%= render partial: 'hi_there/shared/page_header', 
              locals: {
-               title:  link_to(@course.title, course_path(@course))
+               title: link_to(@course.title, course_path(@course)), 
+               meta: t("hi_there.courses.current_state.#{@course.current_state}")
              } %>
 
   <div class="page-body">

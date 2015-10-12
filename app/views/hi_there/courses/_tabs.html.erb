@@ -5,7 +5,7 @@
         <%= link_to 'Overview', course_path(course) %>
       </li>
 
-      <li class="<%= add_active_class_if(current_action?(controller: 'emails', action: 'index')) %>">
+      <li class="<%= add_active_class_if(current_action?(controller: 'emails')) %>">
         <%= link_to 'Emails', course_emails_path(course) %>
       </li>
 

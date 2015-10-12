@@ -27,7 +27,7 @@ en:
         terminate: 'Terminate'
         subscriptions: 'Subscriptions'
       current_state:
-        draft: 'This course is currently a draft. Click open to start accepting subscriptions.'
+        draft: 'This course is currently a draft. Open the course to start accepting subscriptions.'
         closed: 'This course is active but currently closed for new subscriptions.'
         opened: 'This course is active and accepting new subscriptions.'
         terminated: 'This course has been terminated. No further emails are being sent.'       
@@ -49,6 +49,8 @@ en:
       delivered_after: 'Delivered after %{interval} days.'
       new:
         title: 'Create a new email'
+      edit:
+        title: 'Edit email'
       actions:
         delete: 'Delete'
         confirm_delete: 'Are you sure you want to delete this email?'

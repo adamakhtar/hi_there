@@ -5,6 +5,8 @@
                meta: t("hi_there.courses.current_state.#{@course.current_state}")
              } %>
 
+  <%= render partial: 'hi_there/courses/tabs', locals: { course: @course } %>             
+
   <div class="page-actions">
     <div class="container">
       <div class="btn-toolbar">
