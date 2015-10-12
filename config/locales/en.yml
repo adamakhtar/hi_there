@@ -41,21 +41,15 @@ en:
         title: 'Edit course details'
       new:
         title: 'New course details'
-
-      form_setup:
-        index:
-          title: 'Setup your optin form'
-      subscriptions: 
-        actions:
-          export: 'Download CSV'      
-        index:
-          title: 'All subscriptions (%{count})'
     emails:
       created: 'The email was saved and added to your course.'
       updated: 'Updated your email.'
       delivered_after: 'Delivered after %{interval} days.'
       new:
         title: 'Create a new email'
+    form_setups:
+      index:
+        title: 'Setup your optin form'
     nav:
       courses: 'Courses'
       back_to_main_app: 'Back to main app'
@@ -64,14 +58,18 @@ en:
       actions:
         send_email: 'Send preview email'
     subscriptions:
+      actions:
+        export: 'Download CSV'      
       confirmation_required: 'One last thing. To confirm your subscription please click the link we have just emailed you.'
       confirmed: 'You are now subscribed.'
+      index:
+        title: 'All subscriptions (%{count})'
       invalid: "But that doesn't exist anymore."
-      sorry: 'Sorry'
-      thank_you: 'Thank you'
       forms:
         email_placeholder: 'Your email address'
         subscribe: 'Sign up'
+      sorry: 'Sorry'
+      thank_you: 'Thank you'
     subscription_mailer:
       confirm_your_email:
         subject: 'Please confirm your email'
