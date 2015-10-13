@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151012124352) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "hi_there_courses", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at",     null: false
@@ -22,8 +25,8 @@ ActiveRecord::Schema.define(version: 20151012124352) do
     t.text     "description"
   end
 
-  add_index "hi_there_courses", ["name"], name: "index_hi_there_courses_on_name"
-  add_index "hi_there_courses", ["workflow_state"], name: "index_hi_there_courses_on_workflow_state"
+  add_index "hi_there_courses", ["name"], name: "index_hi_there_courses_on_name", using: :btree
+  add_index "hi_there_courses", ["workflow_state"], name: "index_hi_there_courses_on_workflow_state", using: :btree
 
   create_table "hi_there_emails", force: :cascade do |t|
     t.string   "subject"
@@ -35,9 +38,9 @@ ActiveRecord::Schema.define(version: 20151012124352) do
     t.integer  "issue_number"
   end
 
-  add_index "hi_there_emails", ["course_id"], name: "index_hi_there_emails_on_course_id"
-  add_index "hi_there_emails", ["interval"], name: "index_hi_there_emails_on_interval"
-  add_index "hi_there_emails", ["issue_number"], name: "index_hi_there_emails_on_issue_number"
+  add_index "hi_there_emails", ["course_id"], name: "index_hi_there_emails_on_course_id", using: :btree
+  add_index "hi_there_emails", ["interval"], name: "index_hi_there_emails_on_interval", using: :btree
+  add_index "hi_there_emails", ["issue_number"], name: "index_hi_there_emails_on_issue_number", using: :btree
 
   create_table "hi_there_subscriptions", force: :cascade do |t|
     t.string   "email"
@@ -50,10 +53,10 @@ ActiveRecord::Schema.define(version: 20151012124352) do
     t.datetime "next_delivery_at"
   end
 
-  add_index "hi_there_subscriptions", ["course_id"], name: "index_hi_there_subscriptions_on_course_id"
-  add_index "hi_there_subscriptions", ["email"], name: "index_hi_there_subscriptions_on_email"
-  add_index "hi_there_subscriptions", ["token"], name: "index_hi_there_subscriptions_on_token"
-  add_index "hi_there_subscriptions", ["workflow_state"], name: "index_hi_there_subscriptions_on_workflow_state"
+  add_index "hi_there_subscriptions", ["course_id"], name: "index_hi_there_subscriptions_on_course_id", using: :btree
+  add_index "hi_there_subscriptions", ["email"], name: "index_hi_there_subscriptions_on_email", using: :btree
+  add_index "hi_there_subscriptions", ["token"], name: "index_hi_there_subscriptions_on_token", using: :btree
+  add_index "hi_there_subscriptions", ["workflow_state"], name: "index_hi_there_subscriptions_on_workflow_state", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.boolean  "admin",                  default: false
@@ -71,7 +74,7 @@ ActiveRecord::Schema.define(version: 20151012124352) do
     t.string   "last_sign_in_ip"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

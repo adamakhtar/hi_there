@@ -4,6 +4,8 @@
 
 This gem is not ready yet. I'm simply pushing to github as I progress for backup reasons. Check back soon though! Weeks not months.
 
+**Headsup:** Requires Posgres or MySQl
+
 ## What is ths HiThere?
 
 HiThere is a rails engine to create automated email courses - courses comprised of several emails you have written on some topic which are then released on a schedule you define to anyone who opts in to it. 
