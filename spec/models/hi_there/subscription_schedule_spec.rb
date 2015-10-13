@@ -69,6 +69,7 @@ module HiThere
         expect(subscription.next_issue_number).to eq email_a.issue_number
         expect(subscription.next_delivery_at).to be_within(5.seconds).of(Time.current + first_interval.days)
         expect(subscription.current_state).to eq :activated
+        expect(subscription.activated_at).to be_within(5.seconds).of(Time.current)
       end
     end
   end

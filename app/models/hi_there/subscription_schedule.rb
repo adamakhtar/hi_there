@@ -23,6 +23,7 @@ module HiThere
       if first_email = course.emails.first
         subscription.update_next_issue!(issue_number: 1, delivery_at: Time.current + first_email.interval.days)
         subscription.activate!
+        subscription.update_activated_at
         true
       else
         false

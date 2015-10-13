@@ -52,6 +52,10 @@ module HiThere
       self.token ||= SecureRandom.urlsafe_base64
     end
 
+    def update_activated_at(datetime=Time.current)
+      update_attributes!(activated_at: datetime)
+    end
+
     def update_next_issue!(issue_number:, delivery_at:)
       update_attributes!(next_issue_number: issue_number, next_delivery_at: delivery_at)
     end
