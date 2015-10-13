@@ -23,9 +23,11 @@ Here's what you can do with this engine
 
 Here's what you can't do:
 
+* transform email links into utm trackable links (...yet)
+* track open rates (...yet)
 * make changes to a coruse once underway (you will have to create a new one and sunset the old one)
-* transform email links into utm trackable links
 * do any AB Testing 
+* send "fancy" responsive newsletters - only text with basic formatting
 
 ## Setting up
 
