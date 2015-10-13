@@ -18,7 +18,9 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'rails', '~> 4.2.4'
   s.add_dependency 'acts_as_list', '~> 0.7.0'
+  s.add_dependency 'chartkick', '~>1.4.0'
   s.add_dependency 'email_validator', '~> 1.6.0'
+  s.add_dependency 'groupdate', '~>2.5.0'
   s.add_dependency 'jquery-rails', '~> 4.0.0'
   s.add_dependency 'jquery-ui-rails', '~> 5.0.0'
   s.add_dependency 'kaminari', '~> 0.16.0'

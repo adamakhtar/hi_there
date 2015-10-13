@@ -1,6 +1,8 @@
 require 'hi_there/engine'
 require 'acts_as_list'
+require 'chartkick'
 require 'email_validator'
+require 'groupdate'
 require 'jquery-rails'
 require 'jquery-ui-rails'
 require 'kaminari'

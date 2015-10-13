@@ -1,70 +1,113 @@
-  <div class="page">
-    <%= render partial: 'hi_there/shared/page_header', 
-               locals: {
-                 title: @course.title, 
-                 meta: t("hi_there.courses.current_state.#{@course.current_state}")
-               } %>
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<div class="page">
+  <%= render partial: 'hi_there/shared/page_header', 
+             locals: {
+               title: @course.title, 
+               meta: t("hi_there.courses.current_state.#{@course.current_state}")
+             } %>
 
-    <%= render partial: 'hi_there/courses/tabs', locals: { course: @course } %>
+  <%= render partial: 'hi_there/courses/tabs', locals: { course: @course } %>
 
-    <div class="page-actions">
-      <div class="container">
-        <div class="btn-toolbar">
-          <div class="btn-group">
-            <%= link_to_with_state(link: t('hi_there.courses.actions.open'),
-                                   path: open_course_path(@course),
-                                   is_active: @course.opened?,                                   
-                                   is_dangerous: @course.draft?,
-                                   confirm_message:  t('hi_there.courses.actions.confirm_open'),
-                                   class: 'btn btn-default',
-                                   method: :put
-                                   ) %>
+  <div class="page-actions">
+    <div class="container">
+      <div class="btn-toolbar">
+        <div class="btn-group">
+          <%= link_to_with_state(link: t('hi_there.courses.actions.open'),
+                                 path: open_course_path(@course),
+                                 is_active: @course.opened?,                                   
+                                 is_dangerous: @course.draft?,
+                                 confirm_message:  t('hi_there.courses.actions.confirm_open'),
+                                 class: 'btn btn-default',
+                                 method: :put
+                                 ) %>
 
-            <%= link_to_with_state(link: t('hi_there.courses.actions.close'),
-                                   path: close_course_path(@course),                                   
-                                   is_active: @course.closed?,
-                                   is_disabled: @course.draft?,
-                                   class: 'btn btn-default',
-                                   method: :put
-                                   ) %>
-          </div>
-
-          <div class="btn-group">                                   
-            <%= link_to_with_state(link: t('hi_there.courses.actions.edit'),
-                                   path: edit_course_path(@course),
-                                   is_disabled: !@course.draft?,
-                                   class: 'btn btn-default',                                   
-                                   ) %>                                   
-          </div>
-
-          <div class="btn-group pull-right">
-            <%= link_to_with_state(link: t('hi_there.courses.actions.terminate'),
-                                   path: terminate_course_path(@course),
-                                   is_disabled: @course.terminated?,
-                                   is_dangerous: @course.can_terminate?,
-                                   confirm_message:  t('hi_there.courses.actions.confirm_terminate'),
-                                   class: 'btn btn-default',
-                                   method: :put
-                                   ) %>                                                                     
-          </div>      
+          <%= link_to_with_state(link: t('hi_there.courses.actions.close'),
+                                 path: close_course_path(@course),                                   
+                                 is_active: @course.closed?,
+                                 is_disabled: @course.draft?,
+                                 class: 'btn btn-default',
+                                 method: :put
+                                 ) %>
         </div>
+
+        <div class="btn-group">                                   
+          <%= link_to_with_state(link: t('hi_there.courses.actions.edit'),
+                                 path: edit_course_path(@course),
+                                 is_disabled: !@course.draft?,
+                                 class: 'btn btn-default',                                   
+                                 ) %>                                   
+        </div>
+
+        <div class="btn-group pull-right">
+          <%= link_to_with_state(link: t('hi_there.courses.actions.terminate'),
+                                 path: terminate_course_path(@course),
+                                 is_disabled: @course.terminated?,
+                                 is_dangerous: @course.can_terminate?,
+                                 confirm_message:  t('hi_there.courses.actions.confirm_terminate'),
+                                 class: 'btn btn-default',
+                                 method: :put
+                                 ) %>                                                                     
+        </div>      
       </div>
     </div>
+  </div>
 
-    <div class="page-body">
-      <div class="container">          
-        <div class="row">
-          <div class="col-sm-6">
-            <h2 class="page-subtitle">Overview</h2>
-            <h5>Internal Name</h5>
-            <p class="data-value"><%= @course.name %></p>
-            <h5>Title</h5>
-            <p class="data-value"><%= @course.title %></p>
-            <h5>Description</h5>
-            <p class="data-value"><%= @course.description %></p>        
+  <div class="page-body">
+    <div class="container">  
+
+      <h2 class="page-subtitle">Overview</h2>
+
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Subscriptions</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-xs-4">
+                  <h4>Total</h4>                
+                  <p><%= @course.subscriptions.count %></p>
+                </div>
+                <div class="col-xs-4">
+                  <h4>Completed</h4>
+                  <p><%= @course.subscriptions.with_completed_state.count %></p>
+                </div>
+                <div class="col-xs-4">
+                  <h4>Unsubscribed</h4>                
+                  <p><%= @course.subscriptions.with_unsubscribed_state.count %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">List growth</h3>
+            </div>
+            <div class="panel-body">
+              <%= column_chart @course.subscriptions.group_by_day(:created_at).count %>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+
+        <div class="col-sm-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Details</h3>
+            </div>
+            <div class="panel-body">
+              <h5>Internal Name</h5>
+              <p class="data-value"><%= @course.name %></p>
+              <h5>Title</h5>
+              <p class="data-value"><%= @course.title %></p>
+              <h5>Description</h5>
+              <p class="data-value"><%= @course.description %></p>  
+            </div>
+          </div> 
+        </div>
+      </div>    
+    </div>      
   </div>
 </div>
