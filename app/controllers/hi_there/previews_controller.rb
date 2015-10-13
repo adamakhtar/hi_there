@@ -2,12 +2,6 @@ require_dependency "hi_there/application_controller"
 
 module HiThere
   class PreviewsController < ApplicationController
-    def show
-      @email = find_email
-      @course = @email.course
-      @body = RenderEmail.new(@email).perform
-    end
-
     def deliver
       @email = find_email
       SubscriptionMailer.preview_email(id: @email.id, to: HiThere.reply_to).deliver_later
