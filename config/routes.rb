@@ -26,4 +26,6 @@ HiThere::Engine.routes.draw do
   get 'invalid/' => 'subscriptions#invalid', as: 'invalid_subscription'
   get 'unsubscribe/' => 'subscriptions#destroy', as: 'unsubscribe_subscription'
   get 'unsubscribed/' => 'subscriptions#unsubscribed', as: 'unsubscribed_subscription'
+
+  root to: 'courses#index'
 end
