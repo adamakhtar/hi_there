@@ -87,7 +87,7 @@
               <h3 class="panel-title">List growth</h3>
             </div>
             <div class="panel-body">
-              <%= column_chart @course.subscriptions.group_by_day(:created_at).count %>
+              <%= column_chart @course.subscriptions.is_or_was_activated.group_by_day(:created_at).count %>
             </div>
           </div>
         </div>

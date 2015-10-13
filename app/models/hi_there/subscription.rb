@@ -29,6 +29,14 @@ module HiThere
 
     validates :email, email: true
 
+    def self.is_or_was_activated
+      where('activated_at IS NOT NULL')
+    end
+
+    def self.overdue
+      where('next_delivery_at < ?', Time.current)
+    end
+
     def self.to_csv(options = {})
       CSV.generate(options) do |csv|
         csv << ['Email', 'Status', 'Opted In', 'Current issue', 'Next issue']
@@ -42,10 +50,6 @@ module HiThere
           ]
         end
       end
-    end
-
-    def self.overdue
-      where('next_delivery_at < ?', Time.current)
     end
 
     def generate_token
