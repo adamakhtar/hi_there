@@ -5,6 +5,8 @@ module HiThere
     include Workflow
 
     belongs_to :course
+    belongs_to :next_email, class_name: 'HiThere::Email'
+    belongs_to :previous_email, class_name: 'HiThere::Email'
     
     validates :email, email: true                     
     validates :course_id, :workflow_state, presence: :true

@@ -24,8 +24,7 @@ module HiThere
     end
 
     def confirm
-      operation = ConfirmSubscription.new(find_subscription_by_token)
-
+      operation = ActivateSubscription.new(find_subscription_by_token)
       if operation.perform
         redirect_to confirmed_subscription_path
       else
