@@ -20,12 +20,12 @@ module HiThere
     describe "#destroy" do
       context "when valid subscription" do
         it "is success" do
-          subscription = double(:subscription, unsubscribe!: true)
+          subscription = double(:subscription, stamp_unsubscribe!: true)
           allow(controller).to receive(:find_subscription_by_token).and_return(subscription)
           
           get :destroy, token: "123abc"
 
-          expect(subscription).to have_received(:unsubscribe!)
+          expect(subscription).to have_received(:stamp_unsubscribe!)
           expect(response).to redirect_to unsubscribed_subscription_path
         end
       end

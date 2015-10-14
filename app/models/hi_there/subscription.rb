@@ -56,6 +56,11 @@ module HiThere
       self.token ||= SecureRandom.urlsafe_base64
     end
 
+    def stamp_unsubscribe!(datetime=Time.current_stateent)
+      unsubscribe!
+      update_attribute(:unsubscribed_at, datetime)
+    end
+
     def update_activated_at(datetime=Time.current)
       update_attributes!(activated_at: datetime)
     end

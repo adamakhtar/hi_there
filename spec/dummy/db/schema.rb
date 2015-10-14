@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151013134419) do
+ActiveRecord::Schema.define(version: 20151014002056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,12 +52,14 @@ ActiveRecord::Schema.define(version: 20151013134419) do
     t.integer  "next_issue_number"
     t.datetime "next_delivery_at"
     t.datetime "activated_at"
+    t.datetime "unsubscribed_at"
   end
 
   add_index "hi_there_subscriptions", ["activated_at"], name: "index_hi_there_subscriptions_on_activated_at", using: :btree
   add_index "hi_there_subscriptions", ["course_id"], name: "index_hi_there_subscriptions_on_course_id", using: :btree
   add_index "hi_there_subscriptions", ["email"], name: "index_hi_there_subscriptions_on_email", using: :btree
   add_index "hi_there_subscriptions", ["token"], name: "index_hi_there_subscriptions_on_token", using: :btree
+  add_index "hi_there_subscriptions", ["unsubscribed_at"], name: "index_hi_there_subscriptions_on_unsubscribed_at", using: :btree
   add_index "hi_there_subscriptions", ["workflow_state"], name: "index_hi_there_subscriptions_on_workflow_state", using: :btree
 
   create_table "users", force: :cascade do |t|
