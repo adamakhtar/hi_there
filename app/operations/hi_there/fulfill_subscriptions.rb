@@ -5,16 +5,10 @@ module HiThere
     end
 
     def perform
-      activated_and_overdue_subscriptions.find_each do |subscription|
+      @subscription_scope.find_each do |subscription|
         operation = FulfillSubscription.new(subscription)
         operation.perform
       end
-    end
-
-    private
-
-    def activated_and_overdue_subscriptions
-      @subscription_scope.with_activated_state.overdue
     end
   end
 end

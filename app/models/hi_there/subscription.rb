@@ -36,7 +36,7 @@ module HiThere
     end
 
     def self.overdue
-      where('next_delivery_at < ?', Time.current)
+      where('next_email_at < ?', Time.current)
     end
 
     def self.to_csv(options = {})
@@ -56,6 +56,10 @@ module HiThere
 
     def generate_token
       self.token ||= SecureRandom.urlsafe_base64
+    end
+
+    def overdue?
+      next_email_at < Time.current
     end
 
     def stamp_unsubscribe!(datetime=Time.current_stateent)
