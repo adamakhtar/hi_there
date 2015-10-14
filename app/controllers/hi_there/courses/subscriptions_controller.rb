@@ -5,7 +5,7 @@ module HiThere
     class SubscriptionsController < ApplicationController
       def index
         @course = find_course
-        @subscriptions = @course.subscriptions
+        @subscriptions = @course.subscriptions.page(params[:page]).per(40)
 
         respond_to do |format|
           format.html

@@ -3,6 +3,7 @@ PATH
   specs:
     hi_there (0.0.1)
       acts_as_list (~> 0.7.0)
+      bootstrap-kaminari-views (~> 0.0.5)
       chartkick (~> 1.4.0)
       email_validator (~> 1.6.0)
       groupdate (~> 2.5.0)
@@ -57,6 +58,9 @@ GEM
     addressable (2.3.8)
     arel (6.0.3)
     bcrypt (3.1.10)
+    bootstrap-kaminari-views (0.0.5)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
     builder (3.2.2)
     byebug (6.0.2)
     capybara (2.4.4)

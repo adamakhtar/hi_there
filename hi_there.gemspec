@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'jquery-rails', '~> 4.0.0'
   s.add_dependency 'jquery-ui-rails', '~> 5.0.0'
   s.add_dependency 'kaminari', '~> 0.16.0'
+  s.add_dependency 'bootstrap-kaminari-views', '~> 0.0.5'
   s.add_dependency 'kramdown', '~> 1.8.0'
   s.add_dependency 'simple_form', '~> 3.1.0'
   s.add_dependency 'workflow', '~> 1.2.0'

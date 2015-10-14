@@ -28,5 +28,12 @@ module HiThere
 
       link_to link, path, options
     end
+
+    # As per bootstrap-kaminari-views instructed
+    def paginate objects, options = {}
+      options.reverse_merge!( theme: 'twitter-bootstrap-3' )
+
+      super( objects, options )
+    end
   end
 end

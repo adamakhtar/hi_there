@@ -6,6 +6,7 @@ require 'groupdate'
 require 'jquery-rails'
 require 'jquery-ui-rails'
 require 'kaminari'
+require 'bootstrap-kaminari-views'
 require 'simple_form'
 require 'workflow'
 

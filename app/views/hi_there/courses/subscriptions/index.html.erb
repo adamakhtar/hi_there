@@ -35,7 +35,8 @@
         <tbody class="course-emails-list">
           <%= render partial: 'hi_there/courses/subscriptions/subscription', collection: @subscriptions %>
         </tbody>
-      </table>  
+      </table> 
+      <%= paginate @subscriptions %>  
     </div>
   </div>
 </div>
