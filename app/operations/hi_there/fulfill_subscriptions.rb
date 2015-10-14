@@ -6,7 +6,7 @@ module HiThere
 
     def perform
       activated_and_overdue_subscriptions.find_each do |subscription|
-        operation = FullFillSubscription.new(subscription)
+        operation = FulfillSubscription.new(subscription)
         operation.perform
       end
     end
