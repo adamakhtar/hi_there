@@ -13,5 +13,9 @@ module HiThere
     def due_from(time)
       time + interval.days
     end
+
+    def next_in_line
+      lower_item
+    end
   end
 end
