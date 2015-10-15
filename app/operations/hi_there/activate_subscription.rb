@@ -8,7 +8,7 @@ module HiThere
       if subscription.course.opened?
         subscription.activate_and_stamp!        
         set_next_email
-        true  
+        true
       else 
         false
       end

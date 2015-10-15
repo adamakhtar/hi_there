@@ -41,14 +41,14 @@ module HiThere
 
     def self.to_csv(options = {})
       CSV.generate(options) do |csv|
-        csv << ['Email', 'Status', 'Opted In', 'Current issue', 'Next issue']
+        csv << ['Email', 'Status', 'Opted In', 'Current email', 'Next email']
         find_each do |subscription|
           csv << [
             subscription.email,
             subscription.current_state,
             subscription.created_at,
-            subscription.previous_issue_number,
-            subscription.next_issue_number
+            subscription.previous_email.try(:issue_number),
+            subscription.next_email.try(:issue_number)
           ]
         end
       end
@@ -62,7 +62,7 @@ module HiThere
       next_email_at < Time.current
     end
 
-    def stamp_unsubscribe!(datetime=Time.current_stateent)
+    def unsubscribe_and_stamp!(datetime=Time.current_stateent)
       unsubscribe!
       update_attribute(:unsubscribed_at, datetime)
     end
