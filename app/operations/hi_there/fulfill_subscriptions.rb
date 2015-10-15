@@ -5,10 +5,18 @@ module HiThere
     end
 
     def perform
-      @subscription_scope.find_each do |subscription|
-        operation = FulfillSubscription.new(subscription)
-        operation.perform
+      active_and_overdue_subscriptons.find_each do |subscription|
+        Subscription.transaction do
+          result = FulfillSubscription.new(subscription).perform && 
+                   AdvanceSubscription.new(subscription).perform       
+  
+          raise ActiveRecord::Rollback unless result == true                             
+        end
       end
+    end
+
+    def active_and_overdue_subscriptions
+      @subscription_scope.with_activated_state.overdue
     end
   end
 end
