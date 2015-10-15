@@ -11,8 +11,11 @@ module HiThere
       previous_email = subscription.next_email
       last_delivered_at = subscription.next_email_at
 
-      if next_email = previous_email.next_in_line
+      if previous_email.next_in_line.present?
+        next_email = previous_email.next_in_line
         next_email_at = next_email.due_from(last_delivered_at)
+      else
+        subscription.complete!
       end
 
       true if subscription.update_attributes(      

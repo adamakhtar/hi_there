@@ -11,7 +11,6 @@ module HiThere
           subscription = operation.perform
 
           expect(subscription).to be_valid
-          expect(subscription.next_issue_number).to eq 1
           expect(subscription.email).to eq "adam@example.com"
           expect(subscription.course_id).to eq course.id
         end

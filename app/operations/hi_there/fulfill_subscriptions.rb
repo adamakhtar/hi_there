@@ -5,7 +5,7 @@ module HiThere
     end
 
     def perform
-      active_and_overdue_subscriptons.find_each do |subscription|
+      active_and_overdue_subscriptions.find_each do |subscription|
         Subscription.transaction do
           result = FulfillSubscription.new(subscription).perform && 
                    AdvanceSubscription.new(subscription).perform       

@@ -15,16 +15,16 @@ module HiThere
       expect(ActionMailer::Base.deliveries[0].subject).to eq 'Please confirm your email'
 
       ActionMailer::Base.deliveries.clear
-      ConfirmSubscription.new(subscription).perform
+      ActivateSubscription.new(subscription).perform
       subscription.reload
       
-      expect(subscription.next_issue_number).to eq 1
+      expect(subscription.next_email).to eq email_a
 
       Timecop.freeze(25.hours.from_now)
       FulfillSubscriptions.new.perform
       subscription.reload
 
-      expect(subscription.next_issue_number).to eq 2
+      expect(subscription.next_email).to eq email_b
       expect(ActionMailer::Base.deliveries.size).to eq 1
       expect(ActionMailer::Base.deliveries[0].subject).to eq 'First email'
 
@@ -35,8 +35,8 @@ module HiThere
 
       expect(ActionMailer::Base.deliveries.size).to eq 1
       expect(ActionMailer::Base.deliveries[0].subject).to eq 'Second email'
-      expect(subscription.next_issue_number).to eq nil
-      expect(subscription.next_delivery_at).to eq nil
+      expect(subscription.next_email).to eq nil
+      expect(subscription.next_email_at).to eq nil
       expect(subscription).to be_completed
     end
 
@@ -53,16 +53,16 @@ module HiThere
       expect(ActionMailer::Base.deliveries[0].subject).to eq 'Please confirm your email'
 
       ActionMailer::Base.deliveries.clear
-      ConfirmSubscription.new(subscription).perform
+      ActivateSubscription.new(subscription).perform
       subscription.reload
       
-      expect(subscription.next_issue_number).to eq 1
+      expect(subscription.next_email).to eq email_a
 
       Timecop.freeze(25.hours.from_now)
       FulfillSubscriptions.new.perform
       subscription.reload
 
-      expect(subscription.next_issue_number).to eq 2
+      expect(subscription.next_email).to eq email_b
       expect(ActionMailer::Base.deliveries.size).to eq 1
       expect(ActionMailer::Base.deliveries[0].subject).to eq 'First email'
 
