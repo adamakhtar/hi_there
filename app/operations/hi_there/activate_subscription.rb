@@ -6,7 +6,7 @@ module HiThere
 
     def perform
       if subscription.course.opened?
-        subscription.activate!        
+        subscription.activate_and_stamp!        
         set_next_email
         true  
       else 

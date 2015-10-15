@@ -67,7 +67,8 @@ module HiThere
       update_attribute(:unsubscribed_at, datetime)
     end
 
-    def update_activated_at(datetime=Time.current)
+    def activate_and_stamp!(datetime=Time.current)
+      activate!
       update_attributes!(activated_at: datetime)
     end
   end
