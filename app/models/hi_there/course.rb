@@ -5,7 +5,7 @@ module HiThere
     has_many :emails, -> { order(issue_number: :asc) }
     has_many :subscriptions
 
-    validates :title, presence: true, uniqueness: true
+    validates :title, presence: true
     validates :name, format: {with: /\A[a-z_\d]+\z/}
     
     workflow do
