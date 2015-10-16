@@ -8,6 +8,7 @@ module HiThere
 
     def show
       @course = find_course
+      @dashboard = CourseDashboard.new(@course)
     end
 
     def new

@@ -2,7 +2,7 @@
 <div class="page">
   <%= render partial: 'hi_there/shared/page_header', 
              locals: {
-               title: @course.title, 
+               title: @dashboard.title, 
                meta: t("hi_there.courses.current_state.#{@course.current_state}")
              } %>
 
@@ -67,15 +67,15 @@
               <div class="row">
                 <div class="col-xs-4">
                   <h4>Total</h4>                
-                  <p><%= @course.subscriptions.count %></p>
+                  <p><%= @dashboard.total_subscriptions_count %></p>
                 </div>
                 <div class="col-xs-4">
                   <h4>Completed</h4>
-                  <p><%= @course.subscriptions.with_completed_state.count %></p>
+                  <p><%= @dashboard.total_completed_count %></p>
                 </div>
                 <div class="col-xs-4">
                   <h4>Unsubscribed</h4>                
-                  <p><%= @course.subscriptions.with_unsubscribed_state.count %></p>
+                  <p><%= @dashboard.total_unsubscribes_count %></p>
                 </div>
               </div>
             </div>
@@ -87,7 +87,16 @@
               <h3 class="panel-title">List growth</h3>
             </div>
             <div class="panel-body">
-              <%= column_chart @course.subscriptions.is_or_was_activated.group_by_day(:created_at).count %>
+              <%= column_chart @dashboard.list_growth, colors: ["#337ab7", "#111"] %>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Email Performance</h3>
+            </div>
+            <div class="panel-body">
+              <%= bar_chart @dashboard.unsubscribes_per_email, colors: ["#337ab7", "#111"] %>
             </div>
           </div>
         </div>
