@@ -104,6 +104,14 @@ input#secret_field {
 
 The secret_field is a honey pot for spammy bots who like to crawl web pages and submit spammy comments on forms. If they fill in this field and submit the form, hi_there will ignore the submission and won't create a subscription helping you preserve a good rating with your email delivery provider. Of course left like so the field will be visible to your visitors. So you need to add the css above to hide it from humans. Bots however are are usually blind to such css trickery, 
 
+## Delivering emails
+
+Schedule the following rake task to run on a regular basis i.e. every hour.
+
+rake hi_there:emails:deliver
+
+This task will look for subscriptions which are due their next installment and then schedule when their next installment occurs.
+
 ## Styling
 
 To prevent your existing styles creeping into HiThere and vica versa, the gem explictly loads a stylesheet in its applciation layout by the name of /hi-there.css rather than the usual appication.css your own layouts use.
