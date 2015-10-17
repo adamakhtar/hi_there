@@ -66,16 +66,16 @@
             <div class="panel-body">
               <div class="row">
                 <div class="col-xs-4">
-                  <h4>Total</h4>                
-                  <p><%= @dashboard.total_subscriptions_count %></p>
+                  <h4>Total activated</h4>                
+                  <p><%= @dashboard.total_activated_count %> / <%= @dashboard.total_subscriptions_count %></p>
                 </div>
                 <div class="col-xs-4">
-                  <h4>Completed</h4>
-                  <p><%= @dashboard.total_completed_count %></p>
+                  <h4>Total completed</h4>
+                  <p><%= @dashboard.total_completed_count %> / <%= @dashboard.total_subscriptions_count %></p>
                 </div>
                 <div class="col-xs-4">
-                  <h4>Unsubscribed</h4>                
-                  <p><%= @dashboard.total_unsubscribes_count %></p>
+                  <h4>Total unsubcribed</h4>                
+                  <p><%= @dashboard.total_unsubscribes_count %> / <%= @dashboard.total_subscriptions_count %></p>
                 </div>
               </div>
             </div>

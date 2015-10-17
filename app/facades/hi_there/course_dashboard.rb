@@ -8,6 +8,10 @@ module HiThere
       course.title
     end
 
+    def total_activated_count
+      subscriptions.is_or_was_activated.count
+    end
+
     def total_unsubscribes_count
       subscriptions.with_unsubscribed_state.count
     end
