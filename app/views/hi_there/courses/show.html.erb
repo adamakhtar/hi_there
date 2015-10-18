@@ -113,6 +113,8 @@
               <p class="data-value"><%= @course.title %></p>
               <h5>Description</h5>
               <p class="data-value"><%= @course.description %></p>  
+              <h5>Deliver emails at</h5>
+              <p class="data-value"><%= l(@course.deliver_at, format: :twenty_four) %></p>  
             </div>
           </div> 
         </div>

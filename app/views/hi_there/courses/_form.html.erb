@@ -2,6 +2,7 @@
   <%= f.input :name, hint: t('hi_there.courses.forms.name_hint') %>
   <%= f.input :title %>
   <%= f.input :description %>
+  <%= f.input :deliver_at %>
   <%= f.submit course.persisted? ? t('hi_there.common.actions.update') : t('hi_there.common.actions.save'), 
               class: 'btn btn-primary' %>
   <%= link_to t('hi_there.common.actions.cancel'), 

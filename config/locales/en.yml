@@ -1,4 +1,8 @@
 en:
+  time:
+    formats:        
+      twenty_four:
+        "%H:%M"
   hi_there:
     common:
       unauthorized: "Sorry you can't do that."

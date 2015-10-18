@@ -69,7 +69,7 @@ module HiThere
     protected
 
     def course_params
-      params.require(:course).permit(:description, :name, :title)
+      params.require(:course).permit(:description, :name, :title, :deliver_at)
     end
 
     def find_course

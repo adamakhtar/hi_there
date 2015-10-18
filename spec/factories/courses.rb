@@ -2,6 +2,7 @@ FactoryGirl.define do
   factory :course, class: 'HiThere::Course' do
     sequence(:title){|x| "#{x} ways to get rich"}
     sequence(:name){|x| "#{x}_course"}
+    deliver_at "09:00"
 
     trait :opened do
       workflow_state 'opened'
