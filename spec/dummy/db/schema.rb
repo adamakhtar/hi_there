@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151017114401) do
+ActiveRecord::Schema.define(version: 20151019133523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,12 @@ ActiveRecord::Schema.define(version: 20151017114401) do
   add_index "hi_there_emails", ["interval"], name: "index_hi_there_emails_on_interval", using: :btree
   add_index "hi_there_emails", ["issue_number"], name: "index_hi_there_emails_on_issue_number", using: :btree
 
+  create_table "hi_there_subscribers", force: :cascade do |t|
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "hi_there_subscriptions", force: :cascade do |t|
     t.string   "email"
     t.string   "workflow_state"
@@ -55,6 +61,7 @@ ActiveRecord::Schema.define(version: 20151017114401) do
     t.datetime "unsubscribed_at"
     t.integer  "next_email_id"
     t.integer  "previous_email_id"
+    t.integer  "subscriber_id"
   end
 
   add_index "hi_there_subscriptions", ["activated_at"], name: "index_hi_there_subscriptions_on_activated_at", using: :btree
@@ -62,6 +69,7 @@ ActiveRecord::Schema.define(version: 20151017114401) do
   add_index "hi_there_subscriptions", ["email"], name: "index_hi_there_subscriptions_on_email", using: :btree
   add_index "hi_there_subscriptions", ["next_email_id"], name: "index_hi_there_subscriptions_on_next_email_id", using: :btree
   add_index "hi_there_subscriptions", ["previous_email_id"], name: "index_hi_there_subscriptions_on_previous_email_id", using: :btree
+  add_index "hi_there_subscriptions", ["subscriber_id"], name: "index_hi_there_subscriptions_on_subscriber_id", using: :btree
   add_index "hi_there_subscriptions", ["token"], name: "index_hi_there_subscriptions_on_token", using: :btree
   add_index "hi_there_subscriptions", ["unsubscribed_at"], name: "index_hi_there_subscriptions_on_unsubscribed_at", using: :btree
   add_index "hi_there_subscriptions", ["workflow_state"], name: "index_hi_there_subscriptions_on_workflow_state", using: :btree
