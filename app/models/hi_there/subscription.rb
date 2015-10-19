@@ -62,7 +62,7 @@ module HiThere
       next_email_at < Time.current
     end
 
-    def unsubscribe_and_stamp!(datetime=Time.current_stateent)
+    def unsubscribe_and_stamp!(datetime=Time.current)
       unsubscribe!
       update_attribute(:unsubscribed_at, datetime)
     end
