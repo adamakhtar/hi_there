@@ -20,11 +20,19 @@ module HiThere
       @course ||= subscription.course
     end
 
-    def set_next_email
-      next_email = course.emails.first
+    def set_next_email      
       subscription.next_email = next_email
-      subscription.next_email_at = next_email.due_from_now
+      subscription.next_email_at = synchronize_delivery_with_specified_delivery_time
       subscription.save!
+    end
+
+    def next_email
+      @next_email ||= course.emails.first
+    end
+
+    def synchronize_delivery_with_specified_delivery_time       
+      scheduled_time = DateTimeDecorator.new(next_email.due_from_now)
+      synchronized_time = scheduled_time.wind_forward_to(course.deliver_at.strftime("%H:%M"))
     end
 
     attr_reader :subscription 

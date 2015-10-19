@@ -3,8 +3,14 @@ require 'timecop'
 
 module HiThere
   RSpec.describe "System" do
+    
+    after do
+      Timecop.return
+    end
+
     it "handles subscription from opt in to completion" do
-      course = create(:course)
+      Timecop.travel(DateTime.parse("08:59"))
+      course = create(:course, deliver_at: '09:00')
       email_a = create(:email, subject: 'First email', interval: 1, course: course)
       email_b = create(:email, subject: 'Second email', interval: 1, course: course)
       course.open!
@@ -14,13 +20,15 @@ module HiThere
       expect(ActionMailer::Base.deliveries.size).to eq 1
       expect(ActionMailer::Base.deliveries[0].subject).to eq 'Please confirm your email'
 
+
+
       ActionMailer::Base.deliveries.clear
       ActivateSubscription.new(subscription).perform
       subscription.reload
       
       expect(subscription.next_email).to eq email_a
 
-      Timecop.freeze(25.hours.from_now)
+      Timecop.freeze(25.hours.from_now) # ensure we pass 09:00
       FulfillSubscriptions.new.perform
       subscription.reload
 
@@ -29,7 +37,7 @@ module HiThere
       expect(ActionMailer::Base.deliveries[0].subject).to eq 'First email'
 
       ActionMailer::Base.deliveries.clear
-      Timecop.freeze(25.hours.from_now)
+      Timecop.freeze(24.hours.from_now)
       FulfillSubscriptions.new.perform
       subscription.reload
 
@@ -42,7 +50,8 @@ module HiThere
 
 
     it "unsubscribes people and does not email them anymore" do
-      course = create(:course)
+      Timecop.travel(DateTime.parse("08:59"))
+      course = create(:course, deliver_at: '09:00')
       email_a = create(:email, subject: 'First email', interval: 1, course: course)
       email_b = create(:email, subject: 'Second email', interval: 1, course: course)
       course.open!
@@ -58,7 +67,7 @@ module HiThere
       
       expect(subscription.next_email).to eq email_a
 
-      Timecop.freeze(25.hours.from_now)
+      Timecop.freeze(25.hours.from_now) # ensure we pass 09:00
       FulfillSubscriptions.new.perform
       subscription.reload
 
@@ -69,7 +78,7 @@ module HiThere
       subscription.unsubscribe!
 
       ActionMailer::Base.deliveries.clear
-      Timecop.freeze(25.hours.from_now)
+      Timecop.freeze(24.hours.from_now)
       FulfillSubscriptions.new.perform
       subscription.reload
 
