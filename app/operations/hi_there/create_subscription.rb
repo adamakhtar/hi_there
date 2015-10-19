@@ -5,14 +5,16 @@ module HiThere
     end
 
     def perform
-      course = find_opened_course
-      subscription = create_subscription(course)
-
-      if subscription.valid?
-        deliver_confirm_email_request(subscription)
+      Subscription.transaction do
+        course = find_opened_course
+        subscriber = create_subscriber!
+        subscription = create_subscription!(subscriber, course)
+        deliver_confirm_email_request(subscription)          
+        subscription        
       end
 
-      subscription
+    rescue ActiveRecord::RecordInvalid
+      return false
     end
 
     private
@@ -27,8 +29,13 @@ module HiThere
       Course.with_opened_state.find(params[:course_id])
     end
 
-    def create_subscription(course)
-      Subscription.create(email: params[:email], course: course)
+    def create_subscriber!
+      Subscriber.create!(email: params[:email])
+    end
+
+    def create_subscription!(subscriber, course)
+      subscriber.subscriptions.create!(course: course)
     end
   end
 end
+

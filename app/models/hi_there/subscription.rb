@@ -5,10 +5,10 @@ module HiThere
     include Workflow
 
     belongs_to :course
+    belongs_to :subscriber
     belongs_to :next_email, class_name: 'HiThere::Email'
     belongs_to :previous_email, class_name: 'HiThere::Email'
     
-    validates :email, email: true                     
     validates :course_id, :workflow_state, presence: :true
 
     workflow do
@@ -28,8 +28,6 @@ module HiThere
     end
 
     before_create :generate_token
-
-    validates :email, email: true
 
     def self.is_or_was_activated
       where('activated_at IS NOT NULL')

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019133523) do
+ActiveRecord::Schema.define(version: 20151019140401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(version: 20151019133523) do
   end
 
   create_table "hi_there_subscriptions", force: :cascade do |t|
-    t.string   "email"
     t.string   "workflow_state"
     t.integer  "course_id"
     t.datetime "created_at",        null: false
@@ -66,7 +65,6 @@ ActiveRecord::Schema.define(version: 20151019133523) do
 
   add_index "hi_there_subscriptions", ["activated_at"], name: "index_hi_there_subscriptions_on_activated_at", using: :btree
   add_index "hi_there_subscriptions", ["course_id"], name: "index_hi_there_subscriptions_on_course_id", using: :btree
-  add_index "hi_there_subscriptions", ["email"], name: "index_hi_there_subscriptions_on_email", using: :btree
   add_index "hi_there_subscriptions", ["next_email_id"], name: "index_hi_there_subscriptions_on_next_email_id", using: :btree
   add_index "hi_there_subscriptions", ["previous_email_id"], name: "index_hi_there_subscriptions_on_previous_email_id", using: :btree
   add_index "hi_there_subscriptions", ["subscriber_id"], name: "index_hi_there_subscriptions_on_subscriber_id", using: :btree
