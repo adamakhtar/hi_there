@@ -43,6 +43,9 @@ module HiThere
       end
     end
 
+    def unsubsribed
+    end
+
     protected
 
     def deny_bots

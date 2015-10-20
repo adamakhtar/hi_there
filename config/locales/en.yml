@@ -79,12 +79,15 @@ en:
       invalid_email: 'That is not a valid email address.'
       index:
         title: 'All subscriptions (%{count})'
-      invalid: "But that doesn't exist anymore."
+      invalid: "But that doesn't exist anymore."      
       forms:
         email_placeholder: 'Your email address'
         subscribe: 'Sign up'
       sorry: 'Sorry'
       thank_you: 'Thank you'
+      unsubscribed:
+        title: Sorry to see you go
+        confirmation: 'You are now unsubscribed from this course.'      
     subscription_mailer:
       confirm_your_email:
         subject: 'Please confirm your email'
