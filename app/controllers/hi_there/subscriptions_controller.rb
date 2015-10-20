@@ -7,15 +7,15 @@ module HiThere
 
     def new
       @course = Course.find(params[:course_id])
-      @subscription = Subscription.new(course: @course)
     end 
 
     def create
       @subscription = CreateSubscription.new(subscription_params).perform
-      if @subscription.valid?
+      if @subscription and @subscription.valid?
         redirect_to confirmation_required_path
       else 
-        @course = @subscription.course
+        flash[:warning] = t('hi_there.subscriptions.invalid_email')
+        @course = Course.find(params[:course_id])
         render :new
       end
     end
@@ -55,7 +55,7 @@ module HiThere
     end
 
     def subscription_params
-      params.require(:subscription).permit(:email, :course_id)
+      params.permit(:email, :course_id)
     end
   end
 end

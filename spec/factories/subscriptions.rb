@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :subscription, :class => 'HiThere::Subscription' do
+    subscriber
     course
 
     trait :opted_in do

@@ -3,7 +3,8 @@ require "rails_helper"
 feature "admin can view subscriptions" do
   scenario "via a course page" do
     course = create(:course)
-    subscription = create(:subscription, course: course, previous_email: create(:email, issue_number: 1))
+    subscriber = create(:subscriber)
+    subscription = create(:subscription, subscriber: subscriber, course: course, previous_email: create(:email, issue_number: 1))
     
     signed_in_admin
     visit hi_there.course_path(course)

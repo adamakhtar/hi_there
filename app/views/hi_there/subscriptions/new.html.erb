@@ -3,11 +3,14 @@
     <div class="sub-box-body">
       <h1 class="sub-box-title"><%= @course.title %></h1>
       <p class="lead"><%= @course.description %></p>
-      <%= simple_form_for @subscription do |f| %>
+      <%= form_tag subscriptions_path do |f| %>
         <%= text_field_tag :secret_field %>
-        <%= f.input :email, label: false, placeholder: t('hi_there.subscriptions.forms.email_placeholder')  %>
-        <%= f.input :course_id, as: :hidden %>
-        <%= f.submit t('hi_there.subscriptions.forms.subscribe'), class: 'btn btn-primary' %>
+        <%= hidden_field_tag :course_id, @course.id %>
+        <div class="form-group">
+          <%= text_field_tag :email, params[:email], placeholder: t('hi_there.subscriptions.forms.email_placeholder'), class: 'form-control' %>        
+        </div>
+
+        <%= submit_tag t('hi_there.subscriptions.forms.subscribe'), class: 'btn btn-primary' %>
       <% end %>
     </div>
   </div>

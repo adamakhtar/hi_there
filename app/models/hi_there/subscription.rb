@@ -29,6 +29,8 @@ module HiThere
 
     before_create :generate_token
 
+    delegate :email, to: :subscriber, prefix: false
+
     def self.is_or_was_activated
       where('activated_at IS NOT NULL')
     end

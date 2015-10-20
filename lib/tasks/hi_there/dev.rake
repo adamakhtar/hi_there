@@ -2,7 +2,7 @@ namespace :hi_there do
   namespace :dev do
 
     desc "Create basic models for development" 
-    task :prime do
+    task prime: :environment  do
       unless Rails.env.development?
         raise 'This task can only be run in the development environment'
       end
@@ -13,8 +13,8 @@ namespace :hi_there do
     end
 
     def create_courses
-      @course_a = HiThere::Course.create!(name: 'course_1', title: 'How to invest 101')
-      @course_b = HiThere::Course.create!(workflow_state: :opened, name: 'course_2', title: 'How to play bingo 101')
+      @course_a = HiThere::Course.create!(name: 'course_1', title: 'How to invest 101', deliver_at: DateTime.parse("09:00"))
+      @course_b = HiThere::Course.create!(workflow_state: :opened, name: 'course_2', title: 'How to play bingo 101', deliver_at: DateTime.parse("09:00"))
     end
 
     def create_emails

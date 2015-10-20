@@ -30,7 +30,7 @@ module HiThere
     end
 
     def create_subscriber!
-      Subscriber.create!(email: params[:email])
+      Subscriber.where(email: params[:email]).first_or_create!
     end
 
     def create_subscription!(subscriber, course)

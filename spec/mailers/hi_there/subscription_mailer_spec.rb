@@ -20,7 +20,7 @@ module HiThere
     describe "next_issue" do
       it "renders" do
         email = create(:email, subject: 'Welcome', body: 'Hi *there*')
-        subscription = create(:subscription, email: 'adam@example.com')
+        subscription = create(:subscription)
 
         mail = SubscriptionMailer.next_issue(id: subscription.id, email_id: email.id)
 
