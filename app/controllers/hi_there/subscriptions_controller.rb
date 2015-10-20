@@ -27,8 +27,6 @@ module HiThere
       operation = ActivateSubscription.new(find_subscription_by_token)
       if operation.perform
         redirect_to confirmed_subscription_path
-      else
-        redirect_to invalid_subscription_path
       end
     end
 
@@ -36,11 +34,9 @@ module HiThere
     end
 
     def destroy
-      if subscription = find_subscription_by_token and subscription.unsubscribe_and_stamp!
-        redirect_to unsubscribed_subscription_path
-      else
-        redirect_to invalid_subscription_path
-      end
+      subscription = find_subscription_by_token
+      subscription.unsubscribe_and_stamp!
+      redirect_to unsubscribed_subscription_path
     end
 
     def unsubsribed
@@ -59,6 +55,10 @@ module HiThere
 
     def subscription_params
       params.permit(:email, :course_id)
+    end
+
+    rescue_from ActiveRecord::RecordNotFound do
+      redirect_to invalid_subscription_path
     end
   end
 end
